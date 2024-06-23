@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+root{
+    // All project colors
+    --primaryColor: #2C3E50; /* A deep blue for a strong and professional primary color */
+    --primaryColorLight: #6e94bb; /* A lighter shade of the primary color for hover states or accents */
+    --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
+    --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
+    --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
+    --blackColor: #000000; /* Pure black for text and other important elements */
+    --greyText: #7F8C8D; /* A soft grey for less emphasized text */
+    --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
+    --cardColor: #5b9bf4; /* Pure white for cards to keep them prominent against the background */
+
+   // Font and Typography
+   --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
+   --h1FontSize: 1.5rem; /* Main headings, prominent */
+   --h2FontSize: 1.25rem; /* Subheadings */
+   --h3FontSize: 1rem; /* Section headings */
+   --normalFontSize: 1rem; /* Body text, standard reading size */
+   --smallFontSize: 0.875rem; /* Small text, for less prominent information */
+   --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
+   --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
+}
+
+body{
+    background: var(--bgColor);
+    
+}
+
+//Default styling
+.flex{
+    display: flex; 
+    align-items: center;
+}
+
+.grid{
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+    
+}
+
+.p{
+    font-size: var(--smallFontSize);
+    
+}
+
+.html{
+    font-size: 90%;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.icon{
+    font-size: var(--h2FontSize);
+    cursor: pointer;
+    
+}
+
+
+img{
+    width: 100%;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: var(--borderRadius);
+    padding: 0.8rem 1rem;
+    color: var(--whiteColor); /* צבע טקסט לבן במצב רגיל */
+    background: var(--primaryColorLight);
+    transition:  0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background: var(--primaryColor); /* שינוי צבע רקע במעבר עכבר */
+        color: var(--blackColor); /* שינוי צבע טקסט במעבר עכבר */
+    }
+}
+
+.secTitle{
+    display: grid; 
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--blackColor);
+    flex-direction: column;
+    gap: 1rem;
+
+    p{
+        color: var(--blackColor);
+        font-size: var(--normalFontSize);
+        font-weight: 400;
+    }
+
+    h3{
+        font-size: var(--h1FontSize);
+    }
+}
+
+.secHeading{
+    padding-bottom: 1.5rem;
+}
+
+.btn 
+.icon{
+    margin-left: 0.5rem;
+}
+
+.btn:hover{
+    color: #61126a;
+    background: var(--primaryColorLight);
+}
+
+.section{
+    padding: 4rem 0 2rem;
+}
+
+.container{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;   
+}
+
+::selection{
+    background: var(--primaryColorLight);
+    color: var(--primaryColor);
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background: var(--primaryColorLight);
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: var(--primaryColor);
+    border-radius: var(--borderRadius);
+}
+
+@media screen and (min-width: 840px) {
+    .section{
+        padding: 4rem 0 3rem;
+    }
+
+    .container{
+        width: 75%;
+        margin: auto;   
+    }
+}

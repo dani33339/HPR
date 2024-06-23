@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --primaryColor: #2C3E50;
+  --primaryColorLight: #6e94bb;
+  --bgColor: #ECF0F1;
+  --formColor: #FFFFFF;
+  --whiteColor: #FFFFFF;
+  --blackColor: #000000;
+  --greyText: #7F8C8D;
+  --inputColor: #BDC3C7;
+  --cardColor: #FFFFFF;
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 1rem;
+  --smallFontSize: 0.875rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 8rem;
+}
+
+.calendarWrap {
+  position: relative;
+  background: #a8cef5;
+  border-radius: var(--borderRadius);
+  border: none;
+  margin: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.calendarWrap .inputBox {
+  padding-right: 1rem;
+  border-radius: var(--borderRadius);
+  border: none;
+  width: 100%;
+  color: #ffffff;
+  background: linear-gradient(10deg, #893092, #055584);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: var(--normalFontSize);
+  cursor: pointer;
+  text-align: center;
+}
+.calendarWrap .calendarElement {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  border-radius: 1rem;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  padding: 0.6rem 0.6rem 0.1rem 0.6rem;
+  right: calc(100% - 300px);
+}/*# sourceMappingURL=DateRangeComp.css.map */

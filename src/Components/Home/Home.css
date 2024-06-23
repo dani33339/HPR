@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --primaryColor: #2C3E50; /* A deep blue for a strong and professional primary color */
+  --primaryColorLight: #34495E; /* A lighter shade of the primary color for hover states or accents */
+  --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
+  --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
+  --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
+  --blackColor: #000000; /* Pure black for text and other important elements */
+  --greyText: #7F8C8D; /* A soft grey for less emphasized text */
+  --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
+  --cardColor: #FFFFFF; /* Pure white for cards to keep them prominent against the background */
+  --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
+  --h1FontSize: 1.5rem; /* Main headings, prominent */
+  --h2FontSize: 1.25rem; /* Subheadings */
+  --h3FontSize: 1rem; /* Section headings */
+  --normalFontSize: 1rem; /* Body text, standard reading size */
+  --smallFontSize: 0.875rem; /* Small text, for less prominent information */
+  --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
+  --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
+}
+
+.Home {
+  position: relative;
+  height: 60vh;
+  bottom: 1;
+  width: 100%;
+  top: 0;
+  margin: auto;
+}
+.Home .photoBg {
+  position: absolute;
+  height: 60vh;
+  width: 100%;
+}
+.Home .photoBg img {
+  height: 60vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Home .sectionText {
+  position: absolute;
+  top: 30%;
+}
+.Home .sectionText h1 {
+  font-size: var(--biggestFontSize);
+  font-weight: 900;
+  background: linear-gradient(90deg, #893092, #055584);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Home .sectionText p {
+  padding: 1rem 0;
+  font-size: var(--normalFontSize);
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.Home .sectionText .btn {
+  gap: 0.5rem;
+  margin: auto;
+  font-size: var(--h2FontSize);
+}
+
+@media screen and (min-width: 480px) {
+  .Home .sectionText {
+    padding: 0 2rem;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .Home h1 {
+    font-size: var(--biggestFontSize);
+    font-weight: 900;
+  }
+  .Home p {
+    padding: 1rem 0;
+    font-size: var(--h2FontSize);
+    max-width: 70%;
+    margin: auto;
+  }
+  .Home .btn {
+    font-size: var(--h3FontSize);
+    margin: auto;
+  }
+}
+@media screen and (min-width: 769px) {
+  .Home .sectionText {
+    padding: auto;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .Home h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    max-width: 70%;
+    margin: auto;
+  }
+  .Home p {
+    padding: 1rem 0;
+    font-size: var(--h2FontSize);
+    max-width: 70%;
+    margin: auto;
+  }
+  .Home .btn {
+    gap: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: var(--h3FontSize);
+    margin: auto;
+  }
+}
+@media screen and (min-width: 1040px) {
+  .Home .sectionText {
+    padding: auto;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .Home h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    max-width: 70%;
+    margin: auto;
+  }
+  .Home p {
+    padding: 1rem 0;
+    font-size: var(--h2FontSize);
+    max-width: 70%;
+    margin: auto;
+  }
+  .Home .btn {
+    gap: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: var(--h3FontSize);
+    margin: auto;
+  }
+}/*# sourceMappingURL=Home.css.map */

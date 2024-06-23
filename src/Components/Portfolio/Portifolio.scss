@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;900&display=swap");
+
+root{
+  // All project colors
+  --primaryColor: #2C3E50; /* A deep blue for a strong and professional primary color */
+  --primaryColorLight: #6e94bb; /* A lighter shade of the primary color for hover states or accents */
+  --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
+  --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
+  --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
+  --blackColor: #000000; /* Pure black for text and other important elements */
+  --greyText: #7F8C8D; /* A soft grey for less emphasized text */
+  --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
+  --cardColor: #FFFFFF; /* Pure white for cards to keep them prominent against the background */
+
+ // Font and Typography
+ --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
+ --h1FontSize: 1.5rem; /* Main headings, prominent */
+ --h2FontSize: 1.25rem; /* Subheadings */
+ --h3FontSize: 1rem; /* Section headings */
+ --normalFontSize: 1rem; /* Body text, standard reading size */
+ --smallFontSize: 0.875rem; /* Small text, for less prominent information */
+ --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
+ --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
+}
+
+.portifolio {
+  .secContainer {
+    gap: 2rem;
+    h3{
+      background: linear-gradient(90deg, #893092, #00a2ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .leftContent {
+      .grid {
+        .singlePortifolio {
+          gap: 1rem;
+          align-items: flex-start;
+
+          .iconDiv {
+            img {
+              height: 50px;
+              width: 50px;
+            }
+          }
+
+          .infor {
+            h4 {
+              padding-bottom: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media screen and (min-width: 480px) {
+  .portifolio {
+    .secContainer {
+      .leftContent {
+        .secHeading {
+          h3 {
+            font-size: var(--h2FontSize);
+          }
+          p {
+            font-size: var(--normalFontSize);
+            padding: 0.5rem 0;
+          }
+        }
+        .grid {
+          .singlePortifolio {
+            gap: 1.5rem;
+
+            .iconDiv {
+              img {
+                height: 60px;
+                width: 60px;
+              }
+            }
+
+            .infor {
+              h4 {
+                padding-bottom: 0.5rem;
+                font-size: var(--h3FontSize);
+                background: linear-gradient(90deg, #893092, #00a2ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+              p {
+                font-size: var(--normalFontSize);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 660px) {
+  .portifolio {
+    .secContainer {
+        // grid-template-columns: repeat(2,1fr);
+      .leftContent {
+        .secHeading {
+          h3 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: var(--h3FontSize);
+          }
+        }
+        .grid {
+            grid-template-columns: repeat(2,1fr);
+          .singlePortifolio {
+            gap: 1.5rem;
+
+            .iconDiv {
+              img {
+                height: 60px;
+                width: 60px;
+              }
+            }
+
+            .infor {
+              h4 {
+                padding-bottom: 0.5rem;
+                font-size: var(--h3FontSize);
+              }
+              p {
+                font-size: var(--normalFontSize);
+              }
+            }
+          }
+        }
+      }
+
+      .rightContent{
+          margin: auto;
+        
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img{
+            margin: auto;
+            max-width: 80%;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 820px) {
+  .portifolio {
+    .secContainer {
+        grid-template-columns: repeat(2,1fr);
+      .leftContent {
+        .secHeading {
+          h3 {
+            font-size: var(--h2FontSize);
+          }
+          p {
+            font-size: var(--h3FontSize);
+          }
+        }
+        .grid {
+            grid-template-columns: repeat(1,1fr);
+          .singlePortifolio {
+            gap: 1.5rem;
+
+            .iconDiv {
+              img {
+                height: 60px;
+                width: 60px;
+              }
+            }
+
+            .infor {
+              h4 {
+                padding-bottom: 0.5rem;
+                font-size: var(--h3FontSize);
+              }
+              p {
+                font-size: var(--normalFontSize);
+              }
+            }
+          }
+        }
+      }
+
+      .rightContent{
+          img{
+            max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1240px) {
+  .portifolio {
+    .secContainer {
+       gap: 3rem;
+      .leftContent {
+        .secHeading {
+          h3 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: var(--h3FontSize);
+          }
+        }
+        .grid {
+            grid-template-columns: repeat(1,1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+          .singlePortifolio {
+            gap: 2rem;
+
+            .iconDiv {
+              img {
+                height: 60px;
+                width: 60px;
+              }
+            }
+
+            .infor {
+              h4 {
+                padding-bottom: 0.5rem;
+                font-size: var(--h2FontSize);
+              }
+              p {
+                font-size: var(--h3FontSize);
+              }
+            }
+          }
+        }
+      }
+
+      .rightContent{
+          img{
+            max-width: 100%;
+        }
+      }
+    }
+  }
+}

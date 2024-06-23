@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;900&display=swap");
+:root {
+  // All project colors
+  --primaryColor: #a8cef5; /* A deep blue for a strong and professional primary color */
+  --primaryColorLight: #6e94bb; /* A lighter shade of the primary color for hover states or accents */
+  --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
+  --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
+  --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
+  --blackColor: #000000; /* Pure black for text and other important elements */
+  --greyText: #7F8C8D; /* A soft grey for less emphasized text */
+  --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
+  --cardColor: #5b9bf4; /* Pure white for cards to keep them prominent against the background */
+  // Font and Typography
+  --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
+  --h1FontSize: 1.5rem; /* Main headings, prominent */
+  --h2FontSize: 1.25rem; /* Subheadings */
+  --h3FontSize: 1rem; /* Section headings */
+  --normalFontSize: 1rem; /* Body text, standard reading size */
+  --smallFontSize: 0.875rem; /* Small text, for less prominent information */
+  --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
+  --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
+}
+
+.accordionContainer .title {
+  font-size: var(--normalFontSize);
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 10px;
+  justify-content: space-between;
+  background: #92c6fa;
+}
+.accordionContainer .title span {
+  cursor: pointer;
+}
+.accordionContainer .title span .icon {
+  font-size: 1.2rem;
+  color: var(--blackColor);
+}
+.accordionContainer .description {
+  font-size: var(--smallFontSize);
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+  white-space: pre-line;
+  height: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  padding: 0 1rem;
+  background: #bdd0e2;
+  border-radius: 0 0 10px 10px;
+  color: var(--blackColor);
+}
+.accordionContainer .show {
+  height: 140px;
+  opacity: 1;
+}
+.accordionContainer .titleAc {
+  background: var(--primaryColorLight);
+  border-radius: 10px 10px 0 0;
+}
+
+.questions .secHeading h3,
+.questions .secHeading h4 {
+  padding-bottom: 1.5rem;
+}
+.questions .secHeading p {
+  font-size: var(--smallFontSize);
+  color: var(--blackColor);
+  padding-bottom: 1rem;
+}
+.questions .form .formContent {
+  gap: 1rem;
+}
+.questions .form .formContent input,
+.questions .form .formContent textarea {
+  background: var(--cardColor);
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: var(--borderRadius);
+  font-size: var(--smallFontSize);
+}
+.questions .form .formContent input::-moz-placeholder, .questions .form .formContent textarea::-moz-placeholder {
+  font-size: var(--smallFontSize);
+  color: var(--blackColor);
+}
+.questions .form .formContent input::placeholder,
+.questions .form .formContent textarea::placeholder {
+  font-size: var(--smallFontSize);
+  color: var(--blackColor);
+}
+.questions .form .formContent textarea {
+  height: 100px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 640px) {
+  .accordionContainer .title {
+    font-size: var(--h3FontSize);
+  }
+  .accordionContainer .title span .icon {
+    font-size: 1.5rem;
+  }
+  .accordionContainer .description {
+    font-size: var(--normalFontSize);
+  }
+  .accordionContainer .show {
+    height: 150px;
+  }
+  .questions .secHeading h3,
+  .questions .secHeading h4 {
+    font-size: var(--h2FontSize);
+  }
+  .questions .secHeading p {
+    font-size: var(--normalFontSize);
+  }
+  .questions .secContainer {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .questions .secContainer .form .formContent input,
+  .questions .secContainer .form .formContent textarea {
+    font-size: var(--normalFontSize);
+  }
+  .questions .secContainer .form .formContent input::-moz-placeholder, .questions .secContainer .form .formContent textarea::-moz-placeholder {
+    font-size: var(--normalFontSize);
+    color: var(--blackColor);
+  }
+  .questions .secContainer .form .formContent input::placeholder,
+  .questions .secContainer .form .formContent textarea::placeholder {
+    font-size: var(--normalFontSize);
+    color: var(--blackColor);
+  }
+  .questions .secContainer .form .formContent textarea {
+    height: 100px;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .accordionContainer .title {
+    font-size: var(--h3FontSize);
+  }
+  .accordionContainer .title span .icon {
+    font-size: 1.5rem;
+  }
+  .accordionContainer .description {
+    font-size: var(--normalFontSize);
+  }
+  .accordionContainer .show {
+    height: 150px;
+  }
+  .questions .secHeading h3,
+  .questions .secHeading h4 {
+    font-size: 1.5rem;
+  }
+  .questions .secHeading p {
+    font-size: var(--h3FontSize);
+  }
+  .questions .secContainer {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .questions .secContainer .form .formContent input,
+  .questions .secContainer .form .formContent textarea {
+    font-size: var(--normalFontSize);
+  }
+  .questions .secContainer .form .formContent input::-moz-placeholder, .questions .secContainer .form .formContent textarea::-moz-placeholder {
+    font-size: var(--normalFontSize);
+    color: var(--blackColor);
+  }
+  .questions .secContainer .form .formContent input::placeholder,
+  .questions .secContainer .form .formContent textarea::placeholder {
+    font-size: var(--normalFontSize);
+    color: var(--blackColor);
+  }
+  .questions .secContainer .form .formContent textarea {
+    height: 100px;
+    border-radius: 10px;
+  }
+}
