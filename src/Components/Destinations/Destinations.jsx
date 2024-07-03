@@ -1,67 +1,79 @@
 import React, { useState } from 'react';
 import './Destinations.css';
 import DateRangeComp from "../DateRangeComp/DateRangeComp.jsx";
-import axios from 'axios';
 import ReactLoading from 'react-loading';
 import Results from '../Results/Results.jsx';
-
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-
-// Imported icons
+import format from 'date-fns/format';
 import { FaHotel } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
+import { FaUser, FaChevronDown } from "react-icons/fa";
+import { handleSearch as searchHotel } from '../api/searchhotel.js'; 
+
+const GuestPicker = ({ numOfAdults, setNumOfAdults, numOfChildren, setNumOfChildren, numOfRooms, setNumOfRooms }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="guestPicker">
+      <button className="guestPickerButton" onClick={() => setOpen(!open)}>
+        <FaUser /> {numOfAdults} adults · {numOfChildren} children · {numOfRooms} room <FaChevronDown />
+      </button>
+      {open && (
+        <div className="guestPickerDropdown">
+          <div className="guestPickerOption">
+            <span>Adults</span>
+            <button onClick={() => setNumOfAdults(Math.max(1, numOfAdults - 1))}>-</button>
+            <span>{numOfAdults}</span>
+            <button onClick={() => setNumOfAdults(numOfAdults + 1)}>+</button>
+          </div>
+          <div className="guestPickerOption">
+            <span>Children</span>
+            <button onClick={() => setNumOfChildren(Math.max(0, numOfChildren - 1))}>-</button>
+            <span>{numOfChildren}</span>
+            <button onClick={() => setNumOfChildren(numOfChildren + 1)}>+</button>
+          </div>
+          <div className="guestPickerOption">
+            <span>Rooms</span>
+            <button onClick={() => setNumOfRooms(Math.max(1, numOfRooms - 1))}>-</button>
+            <span>{numOfRooms}</span>
+            <button onClick={() => setNumOfRooms(numOfRooms + 1)}>+</button>
+          </div>
+          <button className="guestPickerDone" onClick={() => setOpen(false)}>Done</button>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Destinations = () => {
   const [hotelName, setHotelName] = useState('');
   const [email, setEmail] = useState('');
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [numOfAdults, setNumOfAdults] = useState(1);
+  const [numOfChildren, setNumOfChildren] = useState(0);
+  const [numOfRooms, setNumOfRooms] = useState(1);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const result_hotle_diteils =  {'address': '232 aonang beach, Tambon Ao Nang, Muang Krabi 81180, Thailand'
-    , 'image_url': 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AUGGfZk1WTi_BWUeZ706A5SwDEQ4AkhrKlDD5T3v09hu0PkPiIktSvkcTrS5t5DvCtp5YLIUtnTWwEkMFZStx-PkYzMW8bbx5gdX9QHIAMfTJaGmYb17ouF-XIjZ7wfSUnbbYtOg5FV0zbd2opEpFsfwysjmDioCxInSg8LoYfjHY1unQzsX&key=AIzaSyBfHKjMQFF7pcg3NdlGe-xlIVSC-ynmFyE', 
-    'name': 'Krabi Resort', 
-    'rating': '4.2', 
-    'skyscanner_id': '128470690',
-     'stars': '4', 
-     'trivago_id': 'hotel-holiday-style-ao-nang-beach-resort-krabi?search=100-6880320'}
+  const handleDateChange = (start, end) => {
+    setStartDate(start);
+    setEndDate(end);
+  };
 
-    const result =  {'channel': 'skyscanner', 
-      'partner': 'Agoda', 
-      'price': 49.5,
-       'sr_id': 'ibisbangkoksiam2024-10-162024-10-1721admin20240621133401', 
-       'ts': '2024-06-21T13:34:10', 
-       'url': '//www.skyscanner.co.in/hotel_deeplink/4.0/IN/en-GB/USD/h_ad/159188513/2024-10-16/2024-10-17/hotel/hotel/hotels?guests=2&rooms=1&legacy_provider_id=22&request_id=11e2cedd-9556-4702-865d-c9fdf0a4bca5&pre_redirect_id=11e2cedd-9556-4702-865d-c9fdf0a4bca5&q_datetime_utc=2024-06-21T13%3A34%3A07&redirect_delay=1000&appName=web&appVersion=2.0&client_id=skyscanner_website&tm_city_code=BKKT&tm_country_code=TH&tm_place_name=Bangkok&tm_stars=4&ticket_price=42.0&deeplink_data=eyJmaWVsZHMiOiB7InNpZ25hdHVyZSI6ICIyYjBkYWRkMGRhMDAwYzM1ZmFjNGFlOWVmZGNmNDRlZSJ9LCAidXJsIjogImh0dHBzOi8vd3d3LmFnb2RhLmNvbS9lbi1nYi9wYXJ0bmVycy9wYXJ0bmVyc2VhcmNoLmFzcHg%2FY2lkPTE4NDYzNzAmaGlkPTMwMTQyNjQmY3VycmVuY3k9VVNEJmNoZWNraW49MjAyNC0xMC0xNiZjaGVja291dD0yMDI0LTEwLTE3Jk51bWJlcm9mQWR1bHRzPTImTnVtYmVyb2ZDaGlsZHJlbj0wJlJvb21zPTEmbWNpZD0zMDM4Jm1hc3RlclJvb21JZD0xODMxMDcxMCJ9&max_price=42.0&channel=website'
-      }
-
-
-  const handleSearch = async () => {
-    const url = 'http://129.159.151.202:5000/search';
+  const handleSearchClick = () => {
     const payload = {
-      hotel_name:'ibis bangkok siam',
-      checkin_date: '2024-06-18', 
-      checkout_date: '2024-06-19',
-      adults: 2,
-      no_rooms: 1,
-      children: "",
-      user_id: ''
+      hotel_name: hotelName,
+      checkin_date: format(startDate, 'yyyy-MM-dd'),
+      checkout_date: format(endDate, 'yyyy-MM-dd'),
+      adults: numOfAdults,
+      no_rooms: numOfRooms,
+      children: numOfChildren,
+      user_id: '' // Assuming user_id is optional or handled elsewhere
     };
-    
-    setLoading(true);
-    setError(null);
-    setResponse(null);
 
-    try {
-      const res = await axios.post(url, payload);
-      console.log(res);
-      setResponse(res.data);
-    } catch (err) {
-      setError(`Error: ${err.response?.status || 'Unknown'}, ${err.response?.data || err.message}`);
-    } finally {
-      setLoading(false);
-    }
+    searchHotel(payload, setLoading, setError, setResponse);
   };
 
   return (
@@ -94,49 +106,46 @@ const Destinations = () => {
             />
           </div>
 
-          <DateRangeComp className="DataRange" />
+          <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
 
-          <button className='btn flex' onClick={handleSearch} disabled={loading}>
+          <GuestPicker 
+            numOfAdults={numOfAdults} 
+            setNumOfAdults={setNumOfAdults}
+            numOfChildren={numOfChildren} 
+            setNumOfChildren={setNumOfChildren}
+            numOfRooms={numOfRooms} 
+            setNumOfRooms={setNumOfRooms}
+          />
+
+          <button className='btn flex' disabled={loading} onClick={handleSearchClick}>
             <BiSearchAlt className='icon' />
             {loading ? 'Searching...' : 'Search'}
           </button>
-{/*          
-            {loading ?
-              ''
-            : 
+         
+          {loading ?
             <ReactLoading 
-            type='bars' 
-            className='Loading'
-            />      
-            }
-            {response && (
-              <div style={{ marginTop: '20px' }}>
-                <h3>Search Results:</h3>
-                <pre>{JSON.stringify(response, null, 2)}</pre>
-              </div>
-            )}
-            {error && (
-              <div style={{ marginTop: '20px', color: 'red' }}>
-                <h3>Error:</h3>
-                <p>{error}</p>
-              </div>
-            )}           */}
+              type='bars' 
+              className='Loading'
+            />
+            : null
+          }
+          {response && (
+            <div style={{ marginTop: '20px' }}>
+              <h3>Search Results:</h3>
+              <pre>{JSON.stringify(response, null, 2)}</pre>
+            </div>
+          )}
+          {error && (
+            <div style={{ marginTop: '20px', color: 'red' }}>
+              <h3>Error:</h3>
+              <p>{error}</p>
+            </div>
+          )}
         </div>
 
-        <div className='resultsection'>
-            <div className='listResult'>
-              <Results
-              image =  {result_hotle_diteils.image_url}
-              name = {result_hotle_diteils.name}
-              rating = {result_hotle_diteils.rating}
-              address = {result_hotle_diteils.address}
-              channel = {result.channel}
-              partner = {result.partner}
-              url = {result.url}
-              price = {result.price}
-              />
-            </div>
-        </div>
+    
+
+       
       </div>  
     </div>
   );

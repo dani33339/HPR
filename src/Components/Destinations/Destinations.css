@@ -44,6 +44,9 @@
   margin-bottom: 3rem;
   margin-top: 1rem;
   gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column */
+  justify-items: center; /* Center the items horizontally */
 }
 .destination .secContainer .searchField .react-loading {
   color: #000000;
@@ -53,7 +56,6 @@
   padding: 1rem;
   border-radius: var(--borderRadius);
   gap: 0.5rem;
-  margin: auto;
 }
 .destination .secContainer .searchField .inputFiled input {
   background: transparent;
@@ -98,9 +100,59 @@
   color: var(--blackColor);
   size: 10px;
 }
+.destination .secContainer .searchField .guestPicker {
+  position: relative;
+}
+.destination .secContainer .searchField .guestPicker .guestPickerButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.destination .secContainer .searchField .guestPicker .guestPickerDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.destination .secContainer .searchField .guestPicker .guestPickerOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.destination .secContainer .searchField .guestPicker .guestPickerOption button {
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.destination .secContainer .searchField .guestPicker .guestPickerDone {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 0.5rem;
+}
 .destination .secContainer .btn {
   gap: 0.5rem;
-  margin: auto;
 }
 .destination .secContainer h3 {
   background: linear-gradient(10deg, #893092, #055584); /* Gradient for text */
@@ -113,17 +165,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-@media screen and (mic-width: 640px) {
+@media screen and (min-width: 641px) {
   .destination .secContainer .searchField {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
   }
 }
-@media screen and (mic-width: 1014px) {
-  .destination .secContainer {
-    grid-template-columns: repeat(3, 1fr);
-  }
+@media screen and (min-width: 1025px) {
   .destination .secContainer .searchField {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* Five columns for large screens */
   }
   .destination .secContainer .secTitle .redText {
     font-size: var(--normalFontSize);

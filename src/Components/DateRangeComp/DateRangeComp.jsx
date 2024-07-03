@@ -8,7 +8,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import './DateRangeComp.scss'; // Import custom styles
 
-const DateRangeComp = () => {
+const DateRangeComp = ({ onDateChange }) => {
   // date state
   const [range, setRange] = useState([
     {
@@ -44,6 +44,12 @@ const DateRangeComp = () => {
     }
   };
 
+  // handle date change
+  const handleSelect = (item) => {
+    setRange([item.selection]);
+    onDateChange(item.selection.startDate, item.selection.endDate);
+  };
+
   return (
     <div className="calendarWrap">
       <input
@@ -56,7 +62,7 @@ const DateRangeComp = () => {
       <div ref={refOne}>
         {open && 
           <DateRange
-            onChange={item => setRange([item.selection])}
+            onChange={handleSelect}
             editableDateInputs={true}
             moveRangeOnFirstSelection={false}
             ranges={range}

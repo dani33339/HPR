@@ -24,17 +24,14 @@
 }
 
 .destination {
-    
     .secContainer {
         .resultsection {
             display: flex;
             justify-content: center;
-           
-          
+
             .listResult {
-                      
-                width: 50rem;   
-                max-height: 38rem;     
+                width: 50rem;
+                max-height: 38rem;
                 background: #def1ff; /* Background color for the result card */
                 border-radius: 0.5rem;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for better visibility */
@@ -49,12 +46,15 @@
         h3 {
             font-size: var(--h1FontSize);
         }
-        
+
         .searchField {
             margin-bottom: 3rem;
             margin-top: 1rem;
             gap: 1rem;
-            
+            display: grid;
+            grid-template-columns: 1fr; /* Default to one column */
+            justify-items: center; /* Center the items horizontally */
+
             .react-loading {
                 color: #000000;
             }
@@ -63,8 +63,7 @@
                 padding: 1rem;
                 border-radius: var(--borderRadius);
                 gap: 0.5rem;
-                margin: auto;
-                                        
+
                 input {
                     background: transparent;
                     border: none;
@@ -85,8 +84,8 @@
                     -webkit-text-fill-color: transparent;
                     color: #ffffff; /* Bright color */
                     font-size: var(--normalFontSize);
-                    opacity: 0.8; 
-                    transition: opacity 0.8s ease;    
+                    opacity: 0.8;
+                    transition: opacity 0.8s ease;
                 }
 
                 input:focus::placeholder {
@@ -98,58 +97,106 @@
                     size: 10px;
                 }
             }
+
+            .guestPicker {
+                position: relative;
+                .guestPickerButton {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    width: 100%;
+                    cursor: pointer;
+                    border-radius: 0.5rem;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+                .guestPickerDropdown {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    width: 100%;
+                    z-index: 1000;
+                    padding: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    border-radius: 0.5rem;
+                }
+
+                .guestPickerOption {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 0;
+                }
+
+                .guestPickerOption button {
+                    width: 30px;
+                    height: 30px;
+                    background: #eee;
+                    border: 1px solid #ccc;
+                    cursor: pointer;
+                }
+
+                .guestPickerDone {
+                    width: 100%;
+                    padding: 10px;
+                    background: #007bff;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    margin-top: 10px;
+                    border-radius: 0.5rem;
+                }
+            }
         }
         .btn {
             gap: 0.5rem;
-            margin: auto;         
-
         }
-        h3{
+        h3 {
             background: linear-gradient(10deg, #893092, #055584); /* Gradient for text */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p{
+        p {
             background: linear-gradient(10deg, #893092, #055584); /* Gradient for text */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
     }
 }
 
-@media screen and (mic-width: 640px){
-    .destination{
-        .secContainer{
-            .searchField{
-                grid-template-columns: repeat(2, 1fr);
-            }       
+@media screen and (min-width: 641px) {
+    .destination {
+        .secContainer {
+            .searchField {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+            }
         }
     }
-    
 }
 
-@media screen and (mic-width: 1014px){
-    .destination{
-        .secContainer{
-             grid-template-columns: repeat(3, 1fr);
-            .searchField{
-                grid-template-columns: repeat(3, 1fr);
-                
-            }   
-            .secTitle{
-                .redText{
+@media screen and (min-width: 1025px) {
+    .destination {
+        .secContainer {
+            .searchField {
+                grid-template-columns: repeat(5, 1fr); /* Five columns for large screens */
+            }
+            .secTitle {
+                .redText {
                     font-size: var(--normalFontSize);
                 }
-                h3{
+                h3 {
                     font-size: var(--h1FontSize);
                 }
-                p{
+                p {
                     font-size: var(--normalFontSize);
                 }
-            }   
+            }
         }
-    } 
+    }
 }
-
-
