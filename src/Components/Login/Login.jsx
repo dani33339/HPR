@@ -9,7 +9,7 @@ const Login = () => {
     <div>
       {!isAuthenticated && (
           <button className="singInBtn btn" onClick = {() => loginWithRedirect()}>
-            Sing in
+            Sing in / up
           </button>
         )}
     </div>

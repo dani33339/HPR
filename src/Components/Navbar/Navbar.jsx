@@ -1,31 +1,29 @@
-import React, { useState } from 'react'
-import './/Navbar.css'
-import LoginButton from '../Login/Login.jsx'
-import LogoutButton from '../Logout/Logout.jsx'
-import DropdownProfile from './OpenProfile.jsx'
-//imported image
+import React, { useState } from 'react';
+import './Navbar.css';
+import LoginButton from '../Login/Login.jsx';
+import OpenProfile from './OpenProfile.jsx';
+// imported image
 import logo from './assets/logo.png';
 import { AiFillCloseCircle } from "react-icons/ai";
 import { PiDotsNineBold } from "react-icons/pi";
 import { useAuth0 } from '@auth0/auth0-react';
-import { CgProfile } from "react-icons/cg";
 
-const Navbar = ()=> {
-  const {logout, isAuthenticated} = useAuth0();
-  //State to track and update navbar
-  const [navBar, setNavBar] = useState("menu")
+const Navbar = () => {
+  const { isAuthenticated, user } = useAuth0();
+  // State to track and update navbar
+  const [navBar, setNavBar] = useState("menu");
 
-  const [OpenProfile, setOpenProfile] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
 
-  //Function to show navbar
+  // Function to show navbar
   const showNavBar = () => {
     setNavBar("menu showNavbar");
-  }
+  };
 
-  //Function to close navbar
+  // Function to close navbar
   const closeNavBar = () => {
     setNavBar("menu");
-  }
+  };
 
   return (
     <div className='navBar'>
@@ -44,23 +42,26 @@ const Navbar = ()=> {
         <AiFillCloseCircle className='icon closeIcon' onClick={closeNavBar} />
       </div>
       <div className='user_button'>
-        <LoginButton/>
-      </div> 
-      {isAuthenticated && (     
-            <CgProfile onClick={()=> setOpenProfile((prev) => !prev)} cursor="pointer"/>
+        <LoginButton />
+      </div>
+      <div className='profile'>
+        {isAuthenticated && (
+          <img 
+            src={user.picture} 
+            alt="Profile" 
+            onClick={() => setOpenProfile((prev) => !prev)} 
+            className="profile-icon" 
+            style={{ cursor: 'pointer' }}
+          />
         )}
         {
-            OpenProfile && <DropdownProfile/> 
+          openProfile && <OpenProfile />
         }
-        
-
-     
-      
+      </div>
       {/* Icon that toggle Navbar */}
-      <PiDotsNineBold className='icon menuIcon' on onClick={showNavBar} />
-
+      <PiDotsNineBold className='icon menuIcon' onClick={showNavBar} />
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

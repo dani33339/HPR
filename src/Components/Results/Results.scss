@@ -1,108 +1,76 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;900&display=swap");
-
-root{
-  // All project colors
-  --primaryColor: #2C3E50; /* A deep blue for a strong and professional primary color */
-  --primaryColorLight: #6e94bb; /* A lighter shade of the primary color for hover states or accents */
-  --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
-  --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
-  --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
-  --blackColor: #000000; /* Pure black for text and other important elements */
-  --greyText: #7F8C8D; /* A soft grey for less emphasized text */
-  --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
-  --cardColor: #FFFFFF; /* Pure white for cards to keep them prominent against the background */
-
- // Font and Typography
- --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
- --h1FontSize: 1.5rem; /* Main headings, prominent */
- --h2FontSize: 1.25rem; /* Subheadings */
- --h3FontSize: 1rem; /* Section headings */
- --normalFontSize: 1rem; /* Body text, standard reading size */
- --smallFontSize: 0.875rem; /* Small text, for less prominent information */
- --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
- --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
-}
-
-
 .searchItem {
-    
-    gap: 4rem;
-    border-color: #000000;
-    .ToplevelResult{
+  gap: 4rem;
+  border-color: #000000;
+  .ToplevelResult{
       .providersResult{
-        display:flex;
-        gap: 0.5rem;
-        padding: auto;
-        height: 4rem;
-        cursor: pointer;
-        .providerName{
-           background: linear-gradient(90deg, #893092, #00a2ff);
-           -webkit-background-clip: text;
-           -webkit-text-fill-color: transparent;
-        }
-         .icon{
-           max-width: 3rem;
-           width: 3rem;
-           border-radius: 0.8rem;
-       }
-       .price{
-        padding-left: 9rem;
-       }
-       hr{
-         color: #00a2ff;
-       }
-     }
-    }
-    
-    
-    .leftContent{
-        margin-bottom: 2rem;
-        margin-left: 2rem;
-        margin-top: 1rem;
-        max-width: 35rem;
-        .hotel_image{
-            border-radius: 3rem;
-            max-width: 200px;
-            max-height: 200px;
-            box-shadow: 0.1rem 0.1rem 0.7rem 0.4rem rgba(187, 170, 237, 0.516);
-        }
-        a{
-            background: linear-gradient(20deg, #893092, #055584); /* Gradient for text */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        line{
-          size:  2rem;
-        }
-    }
-    .rightContent{
-    
-        flex-direction: column;
-        overflow-y: scroll;       
-        max-height: 16rem;
-        max-width: 40rem;
-    }
+          display:flex;
+          gap: 0.5rem;
+          padding: auto;
+          height: 4rem;
+          cursor: pointer;
+          .providerName{
+              background: linear-gradient(90deg, #893092, #00a2ff);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
+          .icon{
+              max-width: 3rem;
+              width: 3rem;
+              border-radius: 0.8rem;
+          }
+          .price{
+              padding-left: 9rem;
+          }
+          hr{
+              color: #00a2ff;
+          }
+      }
   }
   
-  @media screen and (min-width:600px) {
-    .searchItem{
-       justify-content: center; 
-       display: flex;
-        .rightContent{
-            margin: auto;
-            flex-direction: column;
-            overflow-y: scroll;
-            
-            width:40rem;
-            max-height: 16rem;
-            
-            align-items: center;
-            justify-content: center;
-            img{
+  .leftContent{
+      margin-bottom: 2rem;
+      margin-left: 2rem;
+      margin-top: 1rem;
+      max-width: 35rem;
+      .hotel_image{
+          border-radius: 3rem;
+          max-width: 200px;
+          max-height: 200px;
+          box-shadow: 0.1rem 0.1rem 0.7rem 0.4rem rgba(187, 170, 237, 0.516);
+      }
+      a{
+          background: linear-gradient(20deg, #893092, #055584);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+      line{
+        size:  2rem;
+      }
+  }
+  .rightContent{
+      flex-direction: column;
+      overflow-y: scroll;       
+      max-height: 16rem;
+      max-width: 40rem;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .searchItem{
+      justify-content: center; 
+      display: flex;
+      .rightContent{
+          margin: auto;
+          flex-direction: column;
+          overflow-y: scroll;
+          width:40rem;
+          max-height: 16rem;
+          align-items: center;
+          justify-content: center;
+          img{
               margin: auto;
               max-width: 80%;
           }
-        }
-    }
-   
+      }
   }
+}

@@ -1,28 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;900&display=swap");
-
-root{
-    // All project colors
-    --primaryColor: #2C3E50; /* A deep blue for a strong and professional primary color */
-    --primaryColorLight: #6e94bb; /* A lighter shade of the primary color for hover states or accents */
-    --bgColor: #ECF0F1; /* A light grey for the background, keeping it clean and neutral */
-    --formColor: #FFFFFF; /* Pure white for forms, ensuring readability */
-    --whiteColor: #FFFFFF; /* Pure white, versatile for various elements */
-    --blackColor: #000000; /* Pure black for text and other important elements */
-    --greyText: #7F8C8D; /* A soft grey for less emphasized text */
-    --inputColor: #BDC3C7; /* A medium grey for input backgrounds */
-    --cardColor: #5b9bf4; /* Pure white for cards to keep them prominent against the background */
-
-   // Font and Typography
-   --biggestFontSize: 2.5rem; /* Largest font size, suitable for hero sections or major headlines */
-   --h1FontSize: 1.5rem; /* Main headings, prominent */
-   --h2FontSize: 1.25rem; /* Subheadings */
-   --h3FontSize: 1rem; /* Section headings */
-   --normalFontSize: 1rem; /* Body text, standard reading size */
-   --smallFontSize: 0.875rem; /* Small text, for less prominent information */
-   --smallestFontSize: 0.75rem; /* Smallest text, for fine print or minor details */
-   --borderRadius: 8rem; /* Slightly rounded corners for a modern, smooth look */
-}
-
 .navBar {
   display: flex;
   align-items: center;
@@ -35,13 +10,51 @@ root{
   background: rgba(255, 255, 255, 0.749);
   backdrop-filter: blur(5px);
 
-  .user_button{
-    .btn{
-      margin:0.1rem 0.5rem;
+  .user_button {
+    position: relative;
+    .btn {
+      margin: 0.1rem 0.5rem;
     }
-    
   }
-
+  .profile{
+    position:relative;
+    .dropDownProfile {
+      position: absolute;
+      top: 4rem;
+      right: 0rem;
+      width: 150px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: rgb(235, 247, 254);
+      border: 2px solid rgb(120, 1, 120);
+      z-index: 1001;
+      
+      li {
+        font-size: var(--h3FontSize);
+        font-weight: 300;
+        text-align: center;
+        cursor: pointer;
+        padding: 5px 0;
+        &:hover {
+          color: var(--primaryColor);
+          border-bottom: 1.5px solid var(--primaryColor);
+        }
+      }
+    
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        transform: rotate(45deg);
+        background-color: rgb(235, 247, 254);
+        border-left: 2px solid rgb(120, 1, 120);
+        border-top: 2px solid rgb(120, 1, 120);
+      }
+    }
+  }
   .logoDiv {
     display: flex;
     align-items: center;
@@ -55,6 +68,7 @@ root{
   }
 
   @media screen and (max-width: 767px) {
+   
     .menu {
       position: absolute;
       width: 70%;
@@ -68,7 +82,7 @@ root{
       transition: 0.8s ease-in-out;
       backdrop-filter: blur(5px);
       box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
-
+      
       li {
         font-size: var(--h3FontSize);
         font-weight: 500;
@@ -92,13 +106,11 @@ root{
     color: var(--whiteColor);
     background: #c9a8f6;
 
-      &:hover {
-        background: linear-gradient(50deg, #c75dd3, #1b82be);
-        color: var(--whiteColor);
+    &:hover {
+      background: linear-gradient(50deg, #c75dd3, #1b82be);
+      color: var(--whiteColor);
     }
   }
-
-  
 
   .menuIcon,
   .closeIcon {
@@ -120,7 +132,19 @@ root{
   .showNavbar {
     top: 8rem;
   }
+
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    cursor: pointer;
+    position: relative;
+  }
 }
+
+
+
 .navBarBG {
   backdrop-filter: blur(5px);
   background: rgba(255, 255, 255, 0.48);
@@ -133,46 +157,52 @@ root{
       span {
         font-size: var(--h2FontSize);
       }
-    
     }
-    .dropDownProfile{
-      position: absolute;
-      top: 4.5rem;
-      right: 1.5rem;
-      width: 120px;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: rgb(235, 247, 254);
-      border: 2px solid rgb(120, 1, 120);
-      li {
-        font-size: var(--h3FontSize);
-        font-weight: 300;
-       
-        text-align: center;
-        cursor: pointer;
-        &:hover {
-          color: var(--primaryColor);
-          border-bottom: 1.5px solid var(--primaryColor);
+    .profile{
+      position:relative;
+      .dropDownProfile {
+        position: absolute;
+        top: 4rem;
+        right: 0rem;
+        width: 150px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgb(235, 247, 254);
+        border: 2px solid rgb(120, 1, 120);
+        z-index: 1001;
+        
+        li {
+          font-size: var(--h3FontSize);
+          font-weight: 300;
+          text-align: center;
+          cursor: pointer;
+          padding: 5px 0;
+          &:hover {
+            color: var(--primaryColor);
+            border-bottom: 1.5px solid var(--primaryColor);
+          }
+        }
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top: -12px;
+          right: 10px;
+          width: 20px;
+          height: 20px;
+          transform: rotate(45deg);
+          background-color: rgb(235, 247, 254);
+          border-left: 2px solid rgb(120, 1, 120);
+          border-top: 2px solid rgb(120, 1, 120);
         }
       }
     }
-    .dropDownProfile::before{
-      content: '';
-      position: absolute;
-      top: -0.7rem;
-      right: 1rem;
-      width: 20px;
-      height: 20px;
-      transform: rotate(45deg);
-      background-color: rgb(235, 247, 254);
-      border-left:2px solid rgb(120, 1, 120);
-      border-top: 2px solid rgb(120, 1, 120);
-      
-    }
+    
     .closeIcon,
     .menuIcon {
       display: none;
     }
+
     .menu {
       ul {
         display: flex;
@@ -197,6 +227,7 @@ root{
 @media screen and (min-width: 1240px) {
   .navBar {
     padding: 2rem 6rem;
+ 
     .menu {
       ul {
         gap: 4rem;
@@ -204,6 +235,7 @@ root{
     }
   }
 }
+
 @media screen and (min-width: 1440px) {
   .navBar {
     padding: 2rem 14rem;

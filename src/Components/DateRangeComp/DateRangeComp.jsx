@@ -69,6 +69,7 @@ const DateRangeComp = ({ onDateChange }) => {
             months={1}
             direction="horizontal"
             className="calendarElement"
+            minDate={new Date()} // Prevent selecting past dates
           />
         }
       </div>

@@ -46,7 +46,7 @@
         h3 {
             font-size: var(--h1FontSize);
         }
-
+       
         .searchField {
             margin-bottom: 3rem;
             margin-top: 1rem;
@@ -54,21 +54,23 @@
             display: grid;
             grid-template-columns: 1fr; /* Default to one column */
             justify-items: center; /* Center the items horizontally */
-
             .react-loading {
                 color: #000000;
+            }
+            .Loading{
+                justify-content: center;
             }
             .inputFiled {
                 background: #a8cef5;
                 padding: 1rem;
                 border-radius: var(--borderRadius);
-                gap: 0.5rem;
-
+                gap: 0.4rem;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 input {
                     background: transparent;
                     border: none;
                     outline: none;
-                    width: 19rem;
+                    width: 17rem;
                     color: #ffffff; /* Fallback color for older browsers */
                     background: linear-gradient(20deg, #893092, #055584); /* Gradient for text */
                     -webkit-background-clip: text;
@@ -100,17 +102,19 @@
 
             .guestPicker {
                 position: relative;
+                
                 .guestPickerButton {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     background: #fff;
                     border: 1px solid #ccc;
-                    padding: 10px;
+                    padding: 15px;
                     width: 100%;
                     cursor: pointer;
                     border-radius: 0.5rem;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    
                 }
 
                 .guestPickerDropdown {
@@ -156,6 +160,7 @@
         }
         .btn {
             gap: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h3 {
             background: linear-gradient(10deg, #893092, #055584); /* Gradient for text */

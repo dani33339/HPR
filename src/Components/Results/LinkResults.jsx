@@ -1,11 +1,6 @@
 import React from 'react';
 import './Results.css';
-
-// Imported icons
-import skyscanner from '../Results/assets/skyscanner.png';
-
-
-
+import skyscanner from './assets/skyscanner.png';
 
 
 function LinkResults({ channel, partner, url, price }) {
@@ -26,7 +21,6 @@ function LinkResults({ channel, partner, url, price }) {
     }
   };
 
-  // Ensure partner is a valid string before using charAt
   const displayPartner = typeof partner === 'string' && partner.length > 0
     ? partner.charAt(0).toUpperCase() + partner.slice(1)
     : '';
@@ -36,11 +30,11 @@ function LinkResults({ channel, partner, url, price }) {
       <a className='providersResult' href={url}>
         <div className="providerIcon">{renderIcon()}</div>
         <div className="providerDetails">
-          <span className="providerName">{displayPartner}.com</span>
+          <span className="providerName">{displayPartner}</span>
         </div>
         <span className='price'>{price}$</span>
       </a>
-      <hr></hr>
+      <hr />
     </div>
   );
 }

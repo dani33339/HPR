@@ -29,12 +29,13 @@
   padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .calendarWrap .inputBox {
   padding-right: 1rem;
   border-radius: var(--borderRadius);
   border: none;
-  width: 100%;
+  width: 12.5rem;
   color: #ffffff;
   background: linear-gradient(10deg, #893092, #055584);
   -webkit-background-clip: text;

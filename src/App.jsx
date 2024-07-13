@@ -5,7 +5,6 @@ import Home from './Components/Home/Home'
 import Navbar from './Components/Navbar/Navbar'
 import Portfolio from './Components/Portfolio/Portfolio'
 import Questions from './Components/Questions/Questions'
-import Subscribe from './Components/Subscribe/Subscribe'
 
 function App() {
   return (
@@ -14,9 +13,7 @@ function App() {
       <Home/>
       <Portfolio/>
      <Destinations/>
-     
      <Questions/>
-     <Subscribe/>
      <Footer/>
     </>
   )

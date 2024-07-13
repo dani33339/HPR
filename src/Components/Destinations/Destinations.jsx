@@ -8,7 +8,7 @@ import { FaHotel } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
 import { FaUser, FaChevronDown } from "react-icons/fa";
-import { handleSearch as searchHotel } from '../api/searchhotel.js'; 
+import { handleSearch, getHotel } from '../api/hotel.js'; 
 
 const GuestPicker = ({ numOfAdults, setNumOfAdults, numOfChildren, setNumOfChildren, numOfRooms, setNumOfRooms }) => {
   const [open, setOpen] = useState(false);
@@ -16,29 +16,29 @@ const GuestPicker = ({ numOfAdults, setNumOfAdults, numOfChildren, setNumOfChild
   return (
     <div className="guestPicker">
       <button className="guestPickerButton" onClick={() => setOpen(!open)}>
-        <FaUser /> {numOfAdults} adults · {numOfChildren} children · {numOfRooms} room <FaChevronDown />
+        <FaUser /> {numOfAdults} מבוגרים · {numOfChildren} ילדים · {numOfRooms} חדר <FaChevronDown />
       </button>
       {open && (
         <div className="guestPickerDropdown">
           <div className="guestPickerOption">
-            <span>Adults</span>
+            <span>מבוגרים</span>
             <button onClick={() => setNumOfAdults(Math.max(1, numOfAdults - 1))}>-</button>
             <span>{numOfAdults}</span>
             <button onClick={() => setNumOfAdults(numOfAdults + 1)}>+</button>
           </div>
           <div className="guestPickerOption">
-            <span>Children</span>
+            <span>ילדים</span>
             <button onClick={() => setNumOfChildren(Math.max(0, numOfChildren - 1))}>-</button>
             <span>{numOfChildren}</span>
             <button onClick={() => setNumOfChildren(numOfChildren + 1)}>+</button>
           </div>
           <div className="guestPickerOption">
-            <span>Rooms</span>
+            <span>חדרים</span>
             <button onClick={() => setNumOfRooms(Math.max(1, numOfRooms - 1))}>-</button>
             <span>{numOfRooms}</span>
             <button onClick={() => setNumOfRooms(numOfRooms + 1)}>+</button>
           </div>
-          <button className="guestPickerDone" onClick={() => setOpen(false)}>Done</button>
+          <button className="guestPickerDone" onClick={() => setOpen(false)}>סיום</button>
         </div>
       )}
     </div>
@@ -56,6 +56,8 @@ const Destinations = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [responseHotel, setResponseHotel] = useState(null);
+  const [errorHotel, setErrorHotel] = useState(null);
 
   const handleDateChange = (start, end) => {
     setStartDate(start);
@@ -70,19 +72,20 @@ const Destinations = () => {
       adults: numOfAdults,
       no_rooms: numOfRooms,
       children: numOfChildren,
-      user_id: '' // Assuming user_id is optional or handled elsewhere
+      user_id: '' // בהנחה ש user_id אינו חובה או מטופל במקום אחר
     };
 
-    searchHotel(payload, setLoading, setError, setResponse);
+    handleSearch(payload, setLoading, setError, setResponse);
+    getHotel(hotelName, setResponseHotel, setErrorHotel);
   };
 
   return (
     <div className='destination section container'>
       <div className='secContainer'>
         <div className='secTitle'>
-          <span className='redText'>EXPLORE NOW</span>
-          <h3>Find your Dream Destination</h3>
-          <p>Fill in the fields below to find the best hotel for your next tour.</p>
+          <span className='redText'>גלה עכשיו</span>
+          <h3>מצא את היעד החלומי שלך</h3>
+          <p>מלא את השדות למטה כדי למצוא את המלון הטוב ביותר לטיול הבא שלך.</p>
         </div>
         
         <div className='searchField grid'>
@@ -90,7 +93,7 @@ const Destinations = () => {
             <FaHotel className='icon' />
             <input
               type="text"
-              placeholder='Hotel Name'
+              placeholder='שם המלון'
               value={hotelName}
               onChange={(e) => setHotelName(e.target.value)}
             />
@@ -100,12 +103,12 @@ const Destinations = () => {
             <MdAlternateEmail className='icon' />
             <input
               type="email"
-              placeholder='Email'
+              placeholder='אימייל'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
+          
           <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
 
           <GuestPicker 
@@ -119,33 +122,30 @@ const Destinations = () => {
 
           <button className='btn flex' disabled={loading} onClick={handleSearchClick}>
             <BiSearchAlt className='icon' />
-            {loading ? 'Searching...' : 'Search'}
+            {loading ? 'מחפש...' : 'חיפוש'}
           </button>
-         
-          {loading ?
-            <ReactLoading 
-              type='bars' 
-              className='Loading'
-            />
-            : null
-          }
-          {response && (
-            <div style={{ marginTop: '20px' }}>
-              <h3>Search Results:</h3>
-              <pre>{JSON.stringify(response, null, 2)}</pre>
-            </div>
-          )}
-          {error && (
-            <div style={{ marginTop: '20px', color: 'red' }}>
-              <h3>Error:</h3>
-              <p>{error}</p>
-            </div>
-          )}
         </div>
-
-    
-
-       
+        {loading ? (
+            <ReactLoading type='bars' className='Loading' />
+          ) : null}
+          
+          {response && responseHotel && (
+            <div style={{ marginTop: '20px' }}>
+              
+              <div className='resultsection'>
+                <Results
+                  response={response}   
+                  responseHotel={responseHotel}      
+                />
+              </div>
+            </div>
+          )}
+          {(error || errorHotel) && (
+            <div style={{ marginTop: '20px', color: 'red' }}>
+              <h3>שגיאה:</h3>
+              <p>{error || errorHotel}</p>
+            </div>
+          )}
       </div>  
     </div>
   );

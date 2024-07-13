@@ -2,7 +2,7 @@ import requests
 
 url = 'http://129.159.151.202:5000/search'
 payload = {
-    'hotel_name': 'ibis bangkok siam',
+    'hotel_name': 'Club Hotel Eilat',
     'checkin_date': '2024-10-16',
     'checkout_date': '2024-10-17',
     'adults': 2,
