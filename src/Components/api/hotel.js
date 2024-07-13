@@ -19,23 +19,3 @@ export const handleSearch = async (payload, setLoading, setError, setResponse) =
     setLoading(false);
   }
 };
-
-export const getHotel = async (hotelName, setResponsehotel, setErrorhotel, setLoading) => {
-  const url = 'http://129.159.151.202:5000/hotel';
-  const payload = {
-    'hotel_name': hotelName,
-  };
-
-  try {
-    const response = await axios.get(url, {
-      params: payload,
-      headers: {'Content-Type': 'application/json'}
-    });
-    setResponsehotel(response.data);
-  } catch (error) {
-    setErrorhotel(`Error: ${error.response?.status || 'Unknown'}, ${error.response?.data || error.message}`);
-  }
-  finally {
-    setLoading(false);
-  }
-};
