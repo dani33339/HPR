@@ -33,10 +33,9 @@ const Navbar = () => {
 
       <div className={navBar}>
         <ul>
-          <li className='navList'>Destination</li>
           <li className='navList'>About us</li>
-          <li className='navList'>Testimonial</li>
-          <li className='navList'>Gallery</li>
+          <li className='navList'>pricing</li>
+          <li className='navList'>questions</li>
         </ul>
         {/* Icon that remove Navbar */}
         <AiFillCloseCircle className='icon closeIcon' onClick={closeNavBar} />

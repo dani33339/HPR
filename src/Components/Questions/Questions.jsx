@@ -49,7 +49,7 @@ function Questions() {
         <div className="accordion grid">
           <Accordion
             title="How does it work?"
-            desc="The system searches for the hotel you choose across multiple meta search websites while using VPN, and browsing incognito. <br> It compares prices and returns the best prices to you."
+            desc="The system searches for the hotel you choose across multiple meta search websites while using VPN, and browsing incognito. It compares prices and returns the best prices to you."
             active={active}
             setActive={setActive}
           />

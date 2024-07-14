@@ -43,7 +43,7 @@ const Destinations = () => {
           <p>Fill in the fields below to find the best price for your desired hotel.</p>
         </div>
         
-        <div className='searchField grid'>
+        <div className='searchField '>
           <div className="inputFiled flex">
             <FaHotel className='icon' />
             <input
@@ -66,7 +66,7 @@ const Destinations = () => {
           
           <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
 
-          <button className='btn flex' disabled={loading} onClick={handleSearchClick}>
+          <button className='serchebtn btn flex' disabled={loading} onClick={handleSearchClick}>
             <BiSearchAlt className='icon' />
             {loading ? 'searching...' : 'search'}
           </button>
@@ -88,9 +88,10 @@ const Destinations = () => {
           {error && (
             <div style={{ marginTop: '20px', color: 'red' }}>
               <h3>error:</h3>
-              <p>{error || errorHotel}</p>
+              <p>{error}</p>
             </div>
           )}
+          
       </div>  
     </div>
   );

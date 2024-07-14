@@ -1,7 +1,12 @@
 import React from 'react';
 import './Results.css';
 import skyscanner from './assets/skyscanner.png';
-
+import booking from './assets/booking.png';
+import agoda from './assets/Agoda.png';
+import expedia from './assets/expedia.png';
+import reserving from './assets/reserving.png';
+import google from './assets/google.png';
+import trivago from './assets/trivago.png';
 
 function LinkResults({ channel, partner, url, price }) {
   const renderIcon = () => {
@@ -16,6 +21,10 @@ function LinkResults({ channel, partner, url, price }) {
         return <img src={expedia} alt="Expedia" className="icon" />;
       case 'reserving':
         return <img src={reserving} alt="Reserving" className="icon" />;
+      case 'google':
+        return <img src={google} alt="Google" className="icon" />;
+      case 'trivago':
+        return <img src={trivago} alt="Trivago" className="icon" />;
       default:
         return null;
     }
@@ -31,10 +40,9 @@ function LinkResults({ channel, partner, url, price }) {
         <div className="providerIcon">{renderIcon()}</div>
         <div className="providerDetails">
           <span className="providerName">{displayPartner}</span>
+          <span className='price'>{price}$</span>
         </div>
-        <span className='price'>{price}$</span>
       </a>
-      <hr />
     </div>
   );
 }

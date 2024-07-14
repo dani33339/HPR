@@ -18,8 +18,7 @@ const OpenProfile = ({ onClose }) => {
         </div>
       ) : (
         <ul className='flex-col gap-4'>
-          <li onClick={() => setShowUserProfile(true)}>Profile</li>
-          <li>Settings</li>
+          <li onClick={() => setShowUserProfile(true)}>Profile</li>     
           <li>
             <LogoutButton />
           </li>
