@@ -7,6 +7,7 @@ import { FaHotel } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
 import { handleSearch as searchHotel } from '../api/hotel.js'; 
+import Results from '../Results/Results.jsx';
 
 const Destinations = () => {
   const [hotelName, setHotelName] = useState('');
@@ -37,9 +38,9 @@ const Destinations = () => {
     <div className='destination section container'>
       <div className='secContainer'>
         <div className='secTitle'>
-          <span className='redText'>EXPLORE NOW</span>
+          <span className='redText'>Find now</span>
           <h3>Find your Dream Destination</h3>
-          <p>Fill in the fields below to find the best hotel for your next tour.</p>
+          <p>Fill in the fields below to find the best price for your desired hotel.</p>
         </div>
         
         <div className='searchField grid'>
@@ -47,7 +48,7 @@ const Destinations = () => {
             <FaHotel className='icon' />
             <input
               type="text"
-              placeholder='Hotel Name'
+              placeholder='hotel name'
               value={hotelName}
               onChange={(e) => setHotelName(e.target.value)}
             />
@@ -57,41 +58,39 @@ const Destinations = () => {
             <MdAlternateEmail className='icon' />
             <input
               type="email"
-              placeholder='Email'
+              placeholder='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
+          
           <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
-
-          <div></div>
 
           <button className='btn flex' disabled={loading} onClick={handleSearchClick}>
             <BiSearchAlt className='icon' />
-            {loading ? 'Searching...' : 'Search'}
+            {loading ? 'searching...' : 'search'}
           </button>
-         
-          {loading ?
-            <ReactLoading 
-              type='bars' 
-              className='Loading'
-            />
-            : null
-          }
+        </div>
+        {loading ? (
+            <ReactLoading type='bars' className='Loading' />
+          ) : null}
+          
           {response && (
             <div style={{ marginTop: '20px' }}>
-              <h3>Search Results:</h3>
-              <pre>{JSON.stringify(response, null, 2)}</pre>
+              
+              <div className='resultsection'>
+                <Results
+                  response={JSON.stringify(response, null, 2)}   
+                />
+              </div>
             </div>
           )}
           {error && (
             <div style={{ marginTop: '20px', color: 'red' }}>
-              <h3>Error:</h3>
-              <p>{error}</p>
+              <h3>error:</h3>
+              <p>{error || errorHotel}</p>
             </div>
           )}
-        </div>
       </div>  
     </div>
   );
