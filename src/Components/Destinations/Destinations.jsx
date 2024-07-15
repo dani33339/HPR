@@ -8,6 +8,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
 import { handleSearch as searchHotel } from '../api/hotel.js'; 
 import Results from '../Results/Results.jsx';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Destinations = () => {
   const [hotelName, setHotelName] = useState('');
@@ -17,6 +18,7 @@ const Destinations = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { user, isAuthenticated } = useAuth0();
 
   const handleDateChange = (start, end) => {
     setStartDate(start);
@@ -24,13 +26,29 @@ const Destinations = () => {
   };
 
   const handleSearchClick = () => {
+    let user_role;
+    console.log(user);
+    if (user && user["/roles"] && user["/roles"].length > 0) {
+      user_role = user["/roles"][0];
+    } else {
+      user_role = "user";
+    }
+  
+    let user_id;
+    if (isAuthenticated) {
+      user_id = encodeURIComponent(user.sub);
+    } else {
+      user_id = "guest";
+    }
+  
     const payload = {
       hotel_name: hotelName,
       checkin_date: format(startDate, 'yyyy-MM-dd'),
       checkout_date: format(endDate, 'yyyy-MM-dd'),
-      user_id: 'vip' 
+      user_id: user_id,
+      user_role: user_role
     };
-
+  
     searchHotel(payload, setLoading, setError, setResponse);
   };
 
