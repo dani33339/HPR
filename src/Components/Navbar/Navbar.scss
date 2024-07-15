@@ -1,243 +1,293 @@
-.navBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1.5rem 2rem;
-  position: fixed;
-  border-bottom: 1.5px solid rgba(245, 245, 245, 0.731);
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.749);
-  backdrop-filter: blur(5px);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-  .user_button {
-    position: relative;
-    .btn {
-      margin: 0.1rem 0.5rem;
-    }
-  }
-  .profile{
-    position:relative;
-    .dropDownProfile {
-      position: absolute;
-      top: 4rem;
-      right: 0rem;
-      width: 150px;
-      padding: 10px;
-      border-radius: 8px;
-      background-color: rgb(235, 247, 254);
-      border: 2px solid rgb(120, 1, 120);
-      z-index: 1001;
-      
-      li {
-        font-size: var(--h3FontSize);
-        font-weight: 300;
-        text-align: center;
-        cursor: pointer;
-        padding: 5px 0;
-        &:hover {
-          color: var(--primaryColor);
-          border-bottom: 1.5px solid var(--primaryColor);
-        }
-      }
-    
-      &::before {
-        content: '';
-        position: absolute;
-        top: -1px;
-        right: 10px;
-        width: 20px;
-        height: 20px;
-        transform: rotate(45deg);
-        background-color: rgb(235, 247, 254);
-        border-left: 2px solid rgb(120, 1, 120);
-        border-top: 2px solid rgb(120, 1, 120);
-      }
-    }
-  }
-  .logoDiv {
+:root {
+    --primaryColor: #2C3E50;
+    --primaryColorLight: #6e94bb;
+    --bgColor: #ECF0F1;
+    --formColor: #FFFFFF;
+    --whiteColor: #FFFFFF;
+    --blackColor: #000000;
+    --greyText: #7F8C8D;
+    --inputColor: #BDC3C7;
+    --cardColor: #FFFFFF;
+
+    --biggestFontSize: 2.5rem;
+    --h1FontSize: 1.5rem;
+    --h2FontSize: 1.25rem;
+    --h3FontSize: 1rem;
+    --normalFontSize: 1rem;
+    --smallFontSize: 0.875rem;
+    --smallestFontSize: 0.75rem;
+    --borderRadius: 8rem;
+}
+
+.navBar {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    span {
-      color: var(--blackColor);
-      font-size: var(--h3FontSize);
-      font-weight: 600;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    position: fixed;
+    border-bottom: 1.5px solid rgba(245, 245, 245, 0.731);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.749);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    .user_button {
+        display: flex;
+        align-items: center;
     }
-  }
 
-  @media screen and (max-width: 767px) {
-   
-    .menu {
-      position: absolute;
-      width: 70%;
-      top: -100rem;
-      right: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      padding: 2rem;
-      border-radius: 10px;
-      transform: translate(-50%);
-      left: 50%;
-      transition: 0.8s ease-in-out;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
-      
-      li {
-        font-size: var(--h3FontSize);
-        font-weight: 500;
-        padding: 1rem 0;
-        text-align: center;
-        cursor: pointer;
-        &:hover {
-          color: var(--primaryColor);
-          border-bottom: 1.5px solid var(--primaryColor);
+    .profile {
+        position: relative;
+
+        .dropDownProfile {
+            position: absolute;
+            top: 4rem;
+            right: 0rem;
+            width: 150px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: rgb(235, 247, 254);
+            border: 2px solid rgb(120, 1, 120);
+            z-index: 1001;
+
+            li {
+                font-size: var(--h3FontSize);
+                font-weight: 300;
+                text-align: center;
+                cursor: pointer;
+                padding: 5px 0;
+                &:hover {
+                    color: var(--primaryColor);
+                    border-bottom: 1.5px solid var(--primaryColor);
+                }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -1px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                transform: rotate(45deg);
+                background-color: rgb(235, 247, 254);
+                border-left: 2px solid rgb(120, 1, 120);
+                border-top: 2px solid rgb(120, 1, 120);
+            }
         }
-      }
     }
-  }
 
-  .singInBtn {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: var(--borderRadius);
-    padding: 0.8rem 1rem;
-    color: var(--whiteColor);
-    background: #c9a8f6;
+    .logoDiv {
+        display: flex;
+        align-items: center;
 
-    &:hover {
-      background: linear-gradient(50deg, #c75dd3, #1b82be);
-      color: var(--whiteColor);
+        img {
+            margin-right: 10rem;
+        }
+
+        span {
+            color: var(--blackColor);
+            font-size: var(--h3FontSize);
+            font-weight: 600;
+        }
     }
-  }
 
-  .menuIcon,
-  .closeIcon {
-    font-size: var(--h1FontSize);
-    &:hover {
-      color: var(--primaryColor);
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        li {
+            list-style: none;
+            font-size: var(--h3FontSize);
+            font-weight: 500;
+            cursor: pointer;
+            &:hover {
+                color: var(--primaryColor);
+                border-bottom: 1.5px solid var(--primaryColor);
+            }
+        }
     }
-  }
 
-  .closeIcon {
-    position: absolute;
-    bottom: -15px;
-    right: 50%;
-    left: 50%;
-    color: var(--blackColor);
-    transform: translate(-50%);
-  }
+    @media screen and (max-width: 767px) {
+        .menu {
+            position: absolute;
+            width: 70%;
+            top: -100rem;
+            right: 50%;
+            background: rgba(255, 255, 255, 0.94);
+            padding: 2rem;
+            border-radius: 10px;
+            transform: translate(-50%);
+            left: 50%;
+            transition: 0.8s ease-in-out;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
+            flex-direction: column;
+            align-items: center;
+        }
 
-  .showNavbar {
-    top: 8rem;
-  }
+        .menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-  .profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 1rem;
-    cursor: pointer;
-    position: relative;
-  }
+        .menu li {
+            font-size: var(--h3FontSize);
+            font-weight: 500;
+            padding: 1rem 0;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                color: var(--primaryColor);
+                border-bottom: 1.5px solid var(--primaryColor);
+            }
+        }
+
+        .showNavbar {
+            top: 8rem;
+        }
+
+        .closeIcon {
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            left: 50%;
+            color: var(--blackColor);
+            transform: translate(-50%);
+        }
+    }
+
+    .singInBtn {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: var(--borderRadius);
+        padding: 0.8rem 1rem;
+        color: var(--whiteColor);
+        background: #c9a8f6;
+
+        &:hover {
+            background: linear-gradient(50deg, #c75dd3, #1b82be);
+            color: var(--whiteColor);
+        }
+    }
+
+    .menuIcon,
+    .closeIcon {
+        font-size: var(--h1FontSize);
+        &:hover {
+            color: var(--primaryColor);
+        }
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 1rem;
+        cursor: pointer;
+        position: relative;
+    }
 }
-
-
 
 .navBarBG {
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.48);
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.48);
 }
 
-// MEDIA QUERIES
 @media screen and (min-width: 768px) {
-  .navBar {
-    .logoDiv {
-      span {
-        font-size: var(--h2FontSize);
-      }
-    }
-    .profile{
-      position:relative;
-      .dropDownProfile {
-        position: absolute;
-        top: 4rem;
-        right: 0rem;
-        width: 150px;
-        padding: 10px;
-        border-radius: 8px;
-        background-color: rgb(235, 247, 254);
-        border: 2px solid rgb(120, 1, 120);
-        z-index: 1001;
-        
-        li {
-          font-size: var(--h3FontSize);
-          font-weight: 300;
-          text-align: center;
-          cursor: pointer;
-          padding: 5px 0;
-          &:hover {
-            color: var(--primaryColor);
-            border-bottom: 1.5px solid var(--primaryColor);
-          }
+    .navBar {
+        .logoDiv {
+            span {
+                font-size: var(--h2FontSize);
+            }
         }
-      
-        &::before {
-          content: '';
-          position: absolute;
-          top: -12px;
-          right: 10px;
-          width: 20px;
-          height: 20px;
-          transform: rotate(45deg);
-          background-color: rgb(235, 247, 254);
-          border-left: 2px solid rgb(120, 1, 120);
-          border-top: 2px solid rgb(120, 1, 120);
-        }
-      }
-    }
-    
-    .closeIcon,
-    .menuIcon {
-      display: none;
-    }
 
-    .menu {
-      ul {
-        display: flex;
-        gap: 1rem;
+        .profile {
+            position: relative;
+            .dropDownProfile {
+                position: absolute;
+                top: 4rem;
+                right: 0rem;
+                width: 150px;
+                padding: 10px;
+                border-radius: 8px;
+                background-color: rgb(235, 247, 254);
+                border: 2px solid rgb(120, 1, 120);
+                z-index: 1001;
 
-        li {
-          font-size: var(--h3FontSize);
-          font-weight: 500;
-          padding: 1rem 0;
-          text-align: center;
-          cursor: pointer;
-          &:hover {
-            color: var(--primaryColor);
-            border-bottom: 1.5px solid var(--primaryColor);
-          }
+                li {
+                    font-size: var(--h3FontSize);
+                    font-weight: 300;
+                    text-align: center;
+                    cursor: pointer;
+                    padding: 5px 0;
+                    &:hover {
+                        color: var(--primaryColor);
+                        border-bottom: 1.5px solid var(--primaryColor);
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -12px;
+                    right: 10px;
+                    width: 20px;
+                    height: 20px;
+                    transform: rotate(45deg);
+                    background-color: rgb(235, 247, 254);
+                    border-left: 2px solid rgb(120, 1, 120);
+                    border-top: 2px solid rgb(120, 1, 120);
+                }
+            }
         }
-      }
+
+        .closeIcon,
+        .menuIcon {
+            display: none;
+        }
+
+        .menu ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .menu li {
+            font-size: var(--h3FontSize);
+            font-weight: 500;
+            padding: 1rem 0;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                color: var(--primaryColor);
+                border-bottom: 1.5px solid var(--primaryColor);
+            }
+        }
     }
-  }
 }
 
 @media screen and (min-width: 1240px) {
-  .navBar {
-    padding: 2rem 6rem;
- 
-    .menu {
-      ul {
-        gap: 4rem;
+    .navBar {
+        padding: 2rem 6rem;
+        img {
+          margin-left: 5rem;
       }
+        .menu ul {
+            gap: 4rem;
+        }
     }
-  }
 }
 
 @media screen and (min-width: 1440px) {
-  .navBar {
-    padding: 2rem 14rem;
-  }
+    .navBar {
+        align-self: center;
+        padding: 2rem 8rem;
+       
+    }
 }
