@@ -9,7 +9,8 @@ const UserProfile = () => {
 
   const fetchUserSearches = async () => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}/deals?user_id=${encodeURIComponent(user.sub)}`);
+      let user_id = encodeURIComponent(user.sub);
+      const response = await axios.get(`${process.env.SERVER_URL}/deals?user_id=${user_id}`);
       const flattenedSearches = response.data.flat();
       setSearches(flattenedSearches);
     } catch (error) {
