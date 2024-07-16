@@ -1,165 +1,31 @@
 .navBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1.5rem 2rem;
-  position: fixed;
-  border-bottom: 1.5px solid rgba(245, 245, 245, 0.731);
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.749);
-  backdrop-filter: blur(5px);
-
-  .user_button {
-    position: relative;
-    .btn {
-      margin: 0.1rem 0.5rem;
-    }
-  }
-  .profile{
-    position:relative;
-    .dropDownProfile {
-      position: absolute;
-      top: 4rem;
-      right: 0rem;
-      width: 150px;
-      padding: 10px;
-      border-radius: 8px;
-      background-color: rgb(235, 247, 254);
-      border: 2px solid rgb(120, 1, 120);
-      z-index: 1001;
-      
-      li {
-        font-size: var(--h3FontSize);
-        font-weight: 300;
-        text-align: center;
-        cursor: pointer;
-        padding: 5px 0;
-        &:hover {
-          color: var(--primaryColor);
-          border-bottom: 1.5px solid var(--primaryColor);
-        }
-      }
-    
-      &::before {
-        content: '';
-        position: absolute;
-        top: -1px;
-        right: 10px;
-        width: 20px;
-        height: 20px;
-        transform: rotate(45deg);
-        background-color: rgb(235, 247, 254);
-        border-left: 2px solid rgb(120, 1, 120);
-        border-top: 2px solid rgb(120, 1, 120);
-      }
-    }
-  }
-  .logoDiv {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    span {
-      color: var(--blackColor);
-      font-size: var(--h3FontSize);
-      font-weight: 600;
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-   
-    .menu {
-      position: absolute;
-      width: 70%;
-      top: -100rem;
-      right: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      padding: 2rem;
-      border-radius: 10px;
-      transform: translate(-50%);
-      left: 50%;
-      transition: 0.8s ease-in-out;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
-      
-      li {
-        font-size: var(--h3FontSize);
-        font-weight: 500;
-        padding: 1rem 0;
-        text-align: center;
-        cursor: pointer;
-        &:hover {
-          color: var(--primaryColor);
-          border-bottom: 1.5px solid var(--primaryColor);
-        }
-      }
-    }
-  }
-
-  .singInBtn {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: var(--borderRadius);
-    padding: 0.8rem 1rem;
-    color: var(--whiteColor);
-    background: #c9a8f6;
-
-    &:hover {
-      background: linear-gradient(50deg, #c75dd3, #1b82be);
-      color: var(--whiteColor);
-    }
-  }
-
-  .menuIcon,
-  .closeIcon {
-    font-size: var(--h1FontSize);
-    &:hover {
-      color: var(--primaryColor);
-    }
-  }
-
-  .closeIcon {
-    position: absolute;
-    bottom: -15px;
-    right: 50%;
-    left: 50%;
-    color: var(--blackColor);
-    transform: translate(-50%);
-  }
-
-  .showNavbar {
-    top: 8rem;
-  }
-
-  .profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 1rem;
-    cursor: pointer;
-    position: relative;
-  }
-}
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    position: fixed;
+    border-bottom: 1.5px solid rgba(245, 245, 245, 0.731);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.749);
+    backdrop-filter: blur(5px);
 
 
+   .overlay{
+  
+    
+   }
 
-.navBarBG {
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.48);
-}
 
-// MEDIA QUERIES
-@media screen and (min-width: 768px) {
-  .navBar {
-    .logoDiv {
-      span {
-        font-size: var(--h2FontSize);
+    .user_button {
+      position: relative;
+      .btn {
+        margin: 0.1rem 0.5rem;
       }
     }
     .profile{
       position:relative;
+      
       .dropDownProfile {
         position: absolute;
         top: 4rem;
@@ -186,7 +52,7 @@
         &::before {
           content: '';
           position: absolute;
-          top: -12px;
+          top: -1px;
           right: 10px;
           width: 20px;
           height: 20px;
@@ -197,17 +63,34 @@
         }
       }
     }
-    
-    .closeIcon,
-    .menuIcon {
-      display: none;
+    .logoDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      span {
+        color: var(--blackColor);
+        font-size: var(--h3FontSize);
+        font-weight: 600;
+      }
     }
-
-    .menu {
-      ul {
-        display: flex;
-        gap: 1rem;
-
+  
+    @media screen and (max-width: 767px) {
+     
+      .menu {
+        position: absolute;
+        width: 70%;
+        top: -100rem;
+        right: 50%;
+        background: rgba(255, 255, 255, 0.94);
+        padding: 2rem;
+        border-radius: 10px;
+        transform: translate(-50%);
+        left: 50%;
+        transition: 0.8s ease-in-out;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
+        
         li {
           font-size: var(--h3FontSize);
           font-weight: 500;
@@ -221,23 +104,148 @@
         }
       }
     }
+  
+    .singInBtn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: var(--borderRadius);
+      padding: 0.8rem 1rem;
+      color: var(--whiteColor);
+      background: #c9a8f6;
+  
+      &:hover {
+        background: linear-gradient(50deg, #c75dd3, #1b82be);
+        color: var(--whiteColor);
+      }
+    }
+  
+    .menuIcon,
+    .closeIcon {
+      font-size: var(--h1FontSize);
+      &:hover {
+        color: var(--primaryColor);
+      }
+    }
+  
+    .closeIcon {
+      position: absolute;
+      bottom: -15px;
+      right: 50%;
+      left: 50%;
+      color: var(--blackColor);
+      transform: translate(-50%);
+    }
+  
+    .showNavbar {
+      top: 8rem;
+    }
+  
+    .profile-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 1rem;
+      cursor: pointer;
+      position: relative;
+    }
   }
-}
-
-@media screen and (min-width: 1240px) {
-  .navBar {
-    padding: 2rem 6rem;
- 
-    .menu {
-      ul {
-        gap: 4rem;
+  
+  
+  
+  .navBarBG {
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.48);
+  }
+  
+  // MEDIA QUERIES
+  @media screen and (min-width: 768px) {
+    .navBar {
+      .logoDiv {
+        span {
+          font-size: var(--h2FontSize);
+        }
+      }
+      .profile{
+        position:relative;
+        .dropDownProfile {
+          position: absolute;
+          top: 4rem;
+          right: 0rem;
+          width: 150px;
+          padding: 10px;
+          border-radius: 8px;
+          background-color: rgb(235, 247, 254);
+          border: 2px solid rgb(120, 1, 120);
+          z-index: 1001;
+          
+          li {
+            font-size: var(--h3FontSize);
+            font-weight: 300;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px 0;
+            &:hover {
+              color: var(--primaryColor);
+              border-bottom: 1.5px solid var(--primaryColor);
+            }
+          }
+        
+          &::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            background-color: rgb(235, 247, 254);
+            border-left: 2px solid rgb(120, 1, 120);
+            border-top: 2px solid rgb(120, 1, 120);
+          }
+        }
+      }
+      
+      .closeIcon,
+      .menuIcon {
+        display: none;
+      }
+  
+      .menu {
+        ul {
+          display: flex;
+          gap: 1rem;
+  
+          li {
+            font-size: var(--h3FontSize);
+            font-weight: 500;
+            padding: 1rem 0;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+              color: var(--primaryColor);
+              border-bottom: 1.5px solid var(--primaryColor);
+            }
+          }
+        }
       }
     }
   }
-}
-
-@media screen and (min-width: 1440px) {
-  .navBar {
-    padding: 2rem 14rem;
+  
+  @media screen and (min-width: 1240px) {
+    .navBar {
+      padding: 2rem 6rem;
+   
+      .menu {
+        ul {
+          gap: 4rem;
+        }
+      }
+    }
   }
-}
+  
+  @media screen and (min-width: 1440px) {
+    .navBar {
+      padding: 2rem 14rem;
+    }
+  }

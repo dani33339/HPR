@@ -34,9 +34,6 @@ function Footer() {
               <li>
                 <a href=''>Travel</a>
               </li>
-              <li>
-                <a href=''>Blog</a>
-              </li>
           </div>
 
           <div className='footerLinks'>
@@ -59,8 +56,9 @@ function Footer() {
           
           <div className='footerLinks'>
               <span className='linkTitle'>Contact Details</span>
-              <span className='phone'>example</span>
-              <span className='email'>exemple@gmail.com</span>
+              <span className='phone'>0527494113</span>
+              <span className='email'>daielantonfinalproject@gmail.com
+              </span>
           </div>
         </div>
       </div>
