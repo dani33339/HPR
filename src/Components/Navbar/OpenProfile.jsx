@@ -15,6 +15,7 @@ const OpenProfile = ({ onClose }) => {
             </button>
             <UserProfile />
           </div>
+         
         </div>
       ) : (
         <ul className='flex-col gap-4'>

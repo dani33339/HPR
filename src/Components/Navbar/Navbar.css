@@ -1,24 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-:root {
-  --primaryColor: #2C3E50;
-  --primaryColorLight: #6e94bb;
-  --bgColor: #ECF0F1;
-  --formColor: #FFFFFF;
-  --whiteColor: #FFFFFF;
-  --blackColor: #000000;
-  --greyText: #7F8C8D;
-  --inputColor: #BDC3C7;
-  --cardColor: #FFFFFF;
-  --biggestFontSize: 2.5rem;
-  --h1FontSize: 1.5rem;
-  --h2FontSize: 1.25rem;
-  --h3FontSize: 1rem;
-  --normalFontSize: 1rem;
-  --smallFontSize: 0.875rem;
-  --smallestFontSize: 0.75rem;
-  --borderRadius: 8rem;
-}
-
 .navBar {
   display: flex;
   align-items: center;
@@ -31,11 +10,12 @@
   background: rgba(255, 255, 255, 0.749);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navBar .user_button {
-  display: flex;
-  align-items: center;
+  position: relative;
+}
+.navBar .user_button .btn {
+  margin: 0.1rem 0.5rem;
 }
 .navBar .profile {
   position: relative;
@@ -77,29 +57,12 @@
 .navBar .logoDiv {
   display: flex;
   align-items: center;
-}
-.navBar .logoDiv img {
-  margin-right: 10rem;
+  justify-content: center;
 }
 .navBar .logoDiv span {
   color: var(--blackColor);
   font-size: var(--h3FontSize);
   font-weight: 600;
-}
-.navBar .menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-.navBar .menu li {
-  list-style: none;
-  font-size: var(--h3FontSize);
-  font-weight: 500;
-  cursor: pointer;
-}
-.navBar .menu li:hover {
-  color: var(--primaryColor);
-  border-bottom: 1.5px solid var(--primaryColor);
 }
 @media screen and (max-width: 767px) {
   .navBar .menu {
@@ -116,13 +79,6 @@
     -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
     box-shadow: 0 2px 3px 4px rgba(236, 213, 213, 0.516);
-    flex-direction: column;
-    align-items: center;
-  }
-  .navBar .menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
   .navBar .menu li {
     font-size: var(--h3FontSize);
@@ -134,17 +90,6 @@
   .navBar .menu li:hover {
     color: var(--primaryColor);
     border-bottom: 1.5px solid var(--primaryColor);
-  }
-  .navBar .showNavbar {
-    top: 8rem;
-  }
-  .navBar .closeIcon {
-    position: absolute;
-    bottom: -15px;
-    right: 50%;
-    left: 50%;
-    color: var(--blackColor);
-    transform: translate(-50%);
   }
 }
 .navBar .singInBtn {
@@ -167,6 +112,17 @@
 .navBar .menuIcon:hover,
 .navBar .closeIcon:hover {
   color: var(--primaryColor);
+}
+.navBar .closeIcon {
+  position: absolute;
+  bottom: -15px;
+  right: 50%;
+  left: 50%;
+  color: var(--blackColor);
+  transform: translate(-50%);
+}
+.navBar .showNavbar {
+  top: 8rem;
 }
 .navBar .profile-icon {
   width: 40px;
@@ -232,14 +188,14 @@
     display: flex;
     gap: 1rem;
   }
-  .navBar .menu li {
+  .navBar .menu ul li {
     font-size: var(--h3FontSize);
     font-weight: 500;
     padding: 1rem 0;
     text-align: center;
     cursor: pointer;
   }
-  .navBar .menu li:hover {
+  .navBar .menu ul li:hover {
     color: var(--primaryColor);
     border-bottom: 1.5px solid var(--primaryColor);
   }
@@ -248,16 +204,12 @@
   .navBar {
     padding: 2rem 6rem;
   }
-  .navBar img {
-    margin-left: 5rem;
-  }
   .navBar .menu ul {
     gap: 4rem;
   }
 }
 @media screen and (min-width: 1440px) {
   .navBar {
-    align-self: center;
-    padding: 2rem 8rem;
+    padding: 2rem 14rem;
   }
 }/*# sourceMappingURL=Navbar.css.map */

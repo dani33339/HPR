@@ -50,7 +50,7 @@ const Navbar = () => {
         )}
         {openProfile && <OpenProfile />}
       </div>
-
+        
       <PiDotsNineBold className='icon menuIcon' onClick={showNavBar} />
     </div>
   );
