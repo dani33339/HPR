@@ -5,7 +5,7 @@ import Home from './Components/Home/Home'
 import Navbar from './Components/Navbar/Navbar'
 import Portfolio from './Components/Portfolio/Portfolio'
 import Questions from './Components/Questions/Questions'
-import Pricing from './Components/Pricing/pricing.jsx'
+import Acountstype from './Components/Acountstype/Acountstype'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Portfolio />
       <Destinations />
       <Questions />
-      <Pricing/>
+      <Acountstype/>
       <Footer />
     </>
   )

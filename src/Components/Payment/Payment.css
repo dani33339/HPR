@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -10,8 +11,7 @@
   justify-content: center;
   z-index: 1000;
 }
-
-.modal-content {
+.modal-overlay .modal-content {
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
@@ -20,41 +20,24 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
-
-.btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.modal-overlay .modal-content h3 {
+  padding: 1rem;
+}
+.modal-overlay .close-button {
   border: none;
+  outline: none;
   cursor: pointer;
+  border-radius: var(--borderRadius);
+  position: relative;
+  left: 13rem;
+  bottom: 1rem;
+  font-size: 20px;
+  justify-content: center;
+  color: var(--whiteColor); /* צבע טקסט לבן במצב רגיל */
+  background: var(--primaryColorLight);
+  transition: 0.3s ease, color 0.3s ease;
 }
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.submit-button {
-  background-color: #2C3E50;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.submit-button:hover {
-  background-color: #1A252F;
+.modal-overlay .close-button:hover {
+  background: var(--primaryColor); /* שינוי צבע רקע במעבר עכבר */
+  color: var(--blackColor); /* שינוי צבע טקסט במעבר עכבר */
 }/*# sourceMappingURL=Payment.css.map */

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import './Pricing.scss';
+import './Acountstype.scss';
 import Payment from '../Payment/Payment';
 
-const Pricing = () => {
+const Acountstype = () => {
   const { isAuthenticated } = useAuth0();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,8 +36,6 @@ const Pricing = () => {
           <p className="card-subtitle">For frequent travelers who want the best price</p>
           <p className="card-price">$5/mo</p>
           <button className="card-button" onClick={openModal}>Buy now</button>
-          <p className="card-trial">Or start a <a href="#">14-day free trial</a></p>
-          <p className="card-features-title">Everything in Essentials, plus:</p>
           <ul className="card-features">
             <li>Access to 5 search engines</li>
             <li>Unlimited search queries</li>
@@ -49,4 +47,4 @@ const Pricing = () => {
   );
 }
 
-export default Pricing;
+export default Acountstype;
