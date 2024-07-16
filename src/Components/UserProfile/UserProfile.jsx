@@ -21,10 +21,11 @@ const UserProfile = () => {
     if (isAuthenticated) {
       fetchUserSearches();
     }
-  }, [isAuthenticated, user]);
+  }, []);
 
   return (
     <div className="user-profile">
+      {console.log(user)}
       {isAuthenticated ? (
         <div className="profile-details">
           <img src={user.picture} alt="Profile" className="profile-picture" />
@@ -33,7 +34,7 @@ const UserProfile = () => {
           {user["/roles"] && user["/roles"].length > 0 && (
             <p>Your membership: {user["/roles"][0]}</p>
           )}
-          
+
           <h3>Your Searches</h3>
           <ul className="search-list">
             {Array.isArray(searches) && searches.length > 0 ? (

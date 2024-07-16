@@ -9,7 +9,14 @@
     z-index: 1000;
     background: rgba(255, 255, 255, 0.749);
     backdrop-filter: blur(5px);
+
+
+   .overlay{
   
+    
+   }
+
+
     .user_button {
       position: relative;
       .btn {
@@ -18,6 +25,7 @@
     }
     .profile{
       position:relative;
+      
       .dropDownProfile {
         position: absolute;
         top: 4rem;
