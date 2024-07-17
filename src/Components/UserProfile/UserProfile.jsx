@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import './UserProfile.css';
+import './UserProfile.scss';
+import SearchHistory from '../SearchHistory/SearchHistory';
 
-const UserProfile = () => {
+const UserProfile = ({ onClose }) => {
   const { user, isAuthenticated } = useAuth0();
   const [searches, setSearches] = useState([]);
 
@@ -21,11 +22,10 @@ const UserProfile = () => {
     if (isAuthenticated) {
       fetchUserSearches();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <div className="user-profile">
-      {console.log(user)}
       {isAuthenticated ? (
         <div className="profile-details">
           <img src={user.picture} alt="Profile" className="profile-picture" />
@@ -35,22 +35,7 @@ const UserProfile = () => {
             <p>Your membership: {user["/roles"][0]}</p>
           )}
 
-          <h3>Your Searches</h3>
-          <ul className="search-list">
-            {Array.isArray(searches) && searches.length > 0 ? (
-              searches.map((search, index) => (
-                <li key={index}>
-                  <strong>Channel:</strong> {search.channel} <br />
-                  <strong>Partner:</strong> {search.partner} <br />
-                  <strong>Price:</strong> {search.price} <br />
-                  <strong>Date:</strong> {new Date(search.ts).toLocaleString()} <br />
-                  <strong>URL:</strong> <a href={search.url} target="_blank" rel="noopener noreferrer">Link</a>
-                </li>
-              ))
-            ) : (
-              <p>No searches found</p>
-            )}
-          </ul>
+          <SearchHistory searches={searches} />
         </div>
       ) : (
         <p>Please log in to see your profile</p>
