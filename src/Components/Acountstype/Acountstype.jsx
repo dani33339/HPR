@@ -37,7 +37,7 @@ const Acountstype = () => {
           <p className="card-price">$5/mo</p>
           <button className="card-button" onClick={openModal}>Buy now</button>
           <ul className="card-features">
-            <li>Access to 5 search engines</li>
+            <li>Access to 3 search engines</li>
             <li>Unlimited search queries</li>
           </ul>
         </div>
