@@ -54,14 +54,8 @@ function Questions() {
             setActive={setActive}
           />
           <Accordion
-            title="How much does it cost?"
-            desc="Guest:limited to one request per day and receive results from only one provider. Registered User: By registering, you are not limited in the number of requests you can make but still receive results from only one provider. Premium Service: Purchase the premium service to enjoy an unrestricted number of requests and receive results from all available providers, maximizing your experience."
-            active={active}
-            setActive={setActive}
-          />
-          <Accordion
             title="How much time does it take?"
-            desc="The system can take up to about 5 minutes to provide a response. You can also opt to receive an email notification when the response is ready."
+            desc="The system can take up to about 5 minutes to provide a response."
             active={active}
             setActive={setActive}
           />
@@ -78,7 +72,13 @@ function Questions() {
             setActive={setActive}
           />
           <Accordion
-            title="When clicking the link, I get price in different currency"
+            title="Whey when I click the link I get a different hotel"
+            desc="We try to match the hotel as best as we can, but sometimes the system may not find the exact hotel."
+            active={active}
+            setActive={setActive}
+          />
+          <Accordion
+            title="Why when clicking the link, I get price in different currency"
             desc="The system searches for the hotel prices in different regions, the price is converted to your local currency on our website. You can change the currency to your preferred currency in the OTA website."
             active={active}
             setActive={setActive}

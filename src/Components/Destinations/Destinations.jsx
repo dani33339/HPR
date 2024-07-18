@@ -5,14 +5,12 @@ import ReactLoading from 'react-loading';
 import format from 'date-fns/format';
 import { FaHotel } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
-import { MdAlternateEmail } from "react-icons/md";
 import { handleSearch as searchHotel } from '../api/hotel.js'; 
 import Results from '../Results/Results.jsx';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Destinations = () => {
   const [hotelName, setHotelName] = useState('');
-  const [email, setEmail] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [response, setResponse] = useState(null);
@@ -95,16 +93,6 @@ const Destinations = () => {
               placeholder='hotel name'
               value={hotelName}
               onChange={(e) => setHotelName(e.target.value)}
-            />
-          </div>
-
-          <div className="inputFiled flex">
-            <MdAlternateEmail className='icon' />
-            <input
-              type="email"
-              placeholder='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           
