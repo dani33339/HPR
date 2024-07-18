@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const handleSearch = async (payload, setLoading, setError, setResponse) => {
-  const url = "http://129.159.151.202:5000/search";
+  const url = `${process.env.SERVER_URL}/search`;
   
   setLoading(true);
   setError(null);

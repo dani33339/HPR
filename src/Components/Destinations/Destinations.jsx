@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Destinations.css';
 import DateRangeComp from "../DateRangeComp/DateRangeComp.jsx";
 import ReactLoading from 'react-loading';
@@ -20,6 +20,32 @@ const Destinations = () => {
   const [loading, setLoading] = useState(false);
   const { user, isAuthenticated } = useAuth0();
 
+  useEffect(() => {
+    const loadScript = (url) => {
+      const script = document.createElement('script');
+      script.src = url;
+      script.async = true;
+      document.head.appendChild(script);
+      script.onload = () => {
+        const input = document.getElementById('hotelNameInput');
+        const autocomplete = new window.google.maps.places.Autocomplete(input, {
+          types: ['establishment'],
+        });
+        autocomplete.addListener('place_changed', () => {
+          const place = autocomplete.getPlace();
+          setHotelName(place.name);
+        });
+      };
+    };
+
+    const apiKey = process.env.GOOGLE_PLACES_API;
+    if (apiKey) {
+      loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&language=en&callback=initMap`);
+    } else {
+      console.error('Google Maps API key is not defined');
+    }
+  }, []);
+
   const handleDateChange = (start, end) => {
     setStartDate(start);
     setEndDate(end);
@@ -27,7 +53,6 @@ const Destinations = () => {
 
   const handleSearchClick = () => {
     let user_role;
-    console.log(user);
     if (user && user["/roles"] && user["/roles"].length > 0) {
       user_role = user["/roles"][0];
     } else {
@@ -65,6 +90,7 @@ const Destinations = () => {
           <div className="inputFiled flex">
             <FaHotel className='icon' />
             <input
+              id="hotelNameInput"
               type="text"
               placeholder='hotel name'
               value={hotelName}
