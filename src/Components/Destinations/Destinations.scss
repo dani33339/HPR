@@ -35,7 +35,6 @@
         display: flex;
         flex-direction: column;
        
-
         .secTitle {
             margin-bottom: 2rem;
         }
@@ -139,6 +138,8 @@
             .searchField {
                 justify-items: center;
                 grid-template-columns: repeat(2, 1fr);
+                position: relative;
+                padding-left: 13rem;
             }
         }
     }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .search-history {
   padding: 20px;
   background-color: #f7f9fc;
@@ -57,15 +58,18 @@
 .search-history .search-list .search-details-list {
   list-style-type: none;
   padding: 0;
-  margin: 0 0 0 20px;
+  margin: 10px 0 0 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .search-history .search-list .search-details-list .search-card {
   background-color: #fff;
   padding: 10px;
-  margin: 5px 0;
+  margin: 5px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
+  flex: 1 1 calc(100% - 10px); /* בסיס ברירת המחדל */
 }
 .search-history .search-list .search-details-list .search-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -80,4 +84,11 @@
 }
 .search-history .search-list .search-details-list .search-card a:hover {
   text-decoration: underline;
+}
+
+/* מדיה שאילתות למסכים גדולים */
+@media (min-width: 768px) {
+  .search-details-list .search-card {
+    flex: 1 1 calc(25% - 10px); /* ארבעה בשורה */
+  }
 }/*# sourceMappingURL=SearchHistory.css.map */

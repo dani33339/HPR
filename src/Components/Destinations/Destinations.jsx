@@ -94,10 +94,8 @@ const Destinations = () => {
               value={hotelName}
               onChange={(e) => setHotelName(e.target.value)}
             />
-          </div>
-          
+          </div>   
           <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
-
           <button className='serchebtn btn flex' disabled={loading} onClick={handleSearchClick}>
             <BiSearchAlt className='icon' />
             {loading ? 'searching...' : 'search'}
