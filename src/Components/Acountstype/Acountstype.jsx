@@ -17,7 +17,7 @@ const Acountstype = () => {
   };
 
   return (
-    <div className="pricing section container">
+    <div className="pricing section container"  data-aos="fade-up">
       <h1 className="pricing-title">Pricing</h1>
       <div className="pricing-cards">
         {!isAuthenticated && (

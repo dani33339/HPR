@@ -76,15 +76,15 @@ const Destinations = () => {
   };
 
   return (
-    <div className='destination section container'>
-      <div className='secContainer'>
-        <div className='secTitle'>
+    <div className='destination section container' >
+      <div className='secContainer' >
+        <div className='secTitle' data-aos="fade-up">
           <span className='redText'>Find now</span>
           <h3>Find your Dream Destination</h3>
           <p>Fill in the fields below to find the best price for your desired hotel.</p>
         </div>
         
-        <div className='searchField '>
+        <div className='searchField '  data-aos="fade-up">
           <div className="inputFiled flex">
             <FaHotel className='icon' />
             <input
