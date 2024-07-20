@@ -68,7 +68,7 @@ function Results({ response }) {
       <div className='rightContent'>
         <input
           type="text"
-          placeholder="Filter by channel"
+          placeholder="Filter by Meta search"
           value={filter}
           onChange={e => setFilter(e.target.value)}
           style={{ marginBottom: '1rem', padding: '0.5rem', borderRadius: '0.5rem', border: '1px solid #ccc' }}
@@ -78,10 +78,10 @@ function Results({ response }) {
             Sort by Price ({sortOrder === 'asc' ? 'Low to High' : 'High to Low'})
           </button>
           <button onClick={() => { setSortKey('channel'); toggleSortOrder(); }}>
-            Sort by Channel ({sortOrder === 'asc' ? 'A to Z' : 'Z to A'})
+            Sort by Meta search ({sortOrder === 'asc' ? 'A to Z' : 'Z to A'})
           </button>
           <button onClick={() => { setSortKey('partner'); toggleSortOrder(); }}>
-            Sort by Partner ({sortOrder === 'asc' ? 'A to Z' : 'Z to A'})
+            Sort by OTA ({sortOrder === 'asc' ? 'A to Z' : 'Z to A'})
           </button>
         </div>
         {sortedDeals.length > 0 ? (
