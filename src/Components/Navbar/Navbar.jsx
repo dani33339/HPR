@@ -24,6 +24,8 @@ const Navbar = ({ scrollToDestinations, scrollToAboutUs, scrollToPricing, scroll
     setOpenProfile(false);
   };
 
+  const userIsVip = isAuthenticated && user["/roles"] && user["/roles"].includes("vip");
+
   return (
     <div className='navBar'>
       <div className="logoDiv">
@@ -33,7 +35,9 @@ const Navbar = ({ scrollToDestinations, scrollToAboutUs, scrollToPricing, scroll
       <div className={navBar}>
         <ul>
           <li className='navList' onClick={scrollToAboutUs}>About us</li>
-          <li className='navList' onClick={scrollToPricing}>Pricing</li>
+          {!userIsVip && (
+            <li className='navList' onClick={scrollToPricing}>Pricing</li>
+          )}
           <li className='navList' onClick={scrollToQuestions}>Questions</li>
         </ul>
         <AiFillCloseCircle className='icon closeIcon' onClick={closeNavBar} />

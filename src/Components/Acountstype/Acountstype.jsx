@@ -20,10 +20,12 @@ const Acountstype = () => {
 
   return (
     <div className="pricing section container" >
-      <h1 className="pricing-title">Pricing</h1>
+       {!userIsVip && (  
+       <h1 className="pricing-title">Pricing</h1>
+       )}
       <div className="pricing-cards" data-aos="fade-up">
-        {!isAuthenticated && (
-          <div className="pricing-card">
+        {!isAuthenticated && (        
+          <div className="pricing-card"> 
             <h2 className="card-title">Regular</h2>
             <p className="card-subtitle">For regular travelers</p>
             <p className="card-price">$0/mo</p>          
