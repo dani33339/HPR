@@ -1,22 +1,22 @@
 :root {
-    --primaryColor: #2C3E50;
-    --primaryColorLight: #6e94bb;
-    --bgColor: #ECF0F1;
-    --formColor: #FFFFFF;
-    --whiteColor: #FFFFFF;
-    --blackColor: #000000;
-    --greyText: #7F8C8D;
-    --inputColor: #BDC3C7;
-    --cardColor: #FFFFFF;
+  --primaryColor: #2C3E50;
+  --primaryColorLight: #6e94bb;
+  --bgColor: #ECF0F1;
+  --formColor: #FFFFFF;
+  --whiteColor: #FFFFFF;
+  --blackColor: #000000;
+  --greyText: #7F8C8D;
+  --inputColor: #BDC3C7;
+  --cardColor: #FFFFFF;
 
-    --biggestFontSize: 2.5rem;
-    --h1FontSize: 1.5rem;
-    --h2FontSize: 1.25rem;
-    --h3FontSize: 1rem;
-    --normalFontSize: 1rem;
-    --smallFontSize: 0.875rem;
-    --smallestFontSize: 0.75rem;
-    --borderRadius: 8rem;
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 1rem;
+  --smallFontSize: 0.875rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 8rem;
 }
 
 $primaryColor: #2C3E50;
@@ -30,138 +30,117 @@ $inputColor: #BDC3C7;
 $cardColor: #FFFFFF;
 
 .pricing {
-  text-align: center;
-  padding: 3rem;
-    
-  .pricing-title {
-    font-size: var(--biggestFontSize);
-    margin-bottom: 0.5rem;
-    background: linear-gradient(10deg, #893092, #055584);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+text-align: center;
+padding: 3rem;
+  
+.pricing-title {
+  font-size: var(--biggestFontSize);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(10deg, #893092, #055584);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .pricing-subtitle {
-    font-size: var(--normalFontSize);
-    color: var(--greyText);
-    margin-bottom: 2rem;
-  }
+.pricing-subtitle {
+  font-size: var(--normalFontSize);
+  color: var(--greyText);
+  margin-bottom: 2rem;
+}
 
-  .pricing-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+.pricing-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 
-    .toggle-button {
-      padding: 0.5rem 1rem;
-      border: none;
-      background: var(--inputColor);
-      cursor: pointer;
-      transition: background 0.3s;
-      margin: 0 0.5rem;
+  .toggle-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: var(--inputColor);
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0 0.5rem;
 
-      &.active,
-      &:hover {
-        background: var(--primaryColor);
-        color: var(--whiteColor);
-      }
-    }
-  }
-
-  .pricing-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-   
-    .pricing-card {
-      background: var(--cardColor);
-      border: 1px solid #ddd;
-      border-radius: 0.5rem;
-      padding: 2rem;
-      margin: 1rem;
-      width: 300px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s;
-
-      &:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .card-title {
-        font-size: var(--h2FontSize);
-        color: var(--primaryColor);
-        margin-bottom: 0.5rem;
-      }
-
-      .card-subtitle {
-        font-size: var(--smallFontSize);
-        color: var(--greyText);
-        margin-bottom: 1rem;
-      }
-
-      .card-price {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .card-button {
-        background: $primaryColor;
-        color: var(--whiteColor);
-        border: none;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        transition: background 0.3s;
-
-        &:hover {
-          background: darken($primaryColor, 10%);
-        }
-      }
-
-      .card-trial {
-        margin: 1rem 0;
-        font-size: var(--smallFontSize);
-        color: var(--greyText);
-
-        a {
-          color: var(--primaryColor);
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      .card-features {
-        list-style: none;
-        padding: 0;
-        text-align: left;
-
-        li {
-          margin: 0.5rem 0;
-          padding-left: 1.5rem;
-          position: relative;
-
-          &::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primaryColor);
-          }
-        }
-      }
-
-      .card-features-title {
-        font-weight: bold;
-        margin-top: 1rem;
-        text-align: left;
-      }
+    &.active,
+    &:hover {
+      background: var(--primaryColor);
+      color: var(--whiteColor);
     }
   }
 }
 
-@media screen and (min-width: 768px) {
-    .pricing-cards {
-        margin: 2rem 13rem;
+.pricing-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+ 
+  .pricing-card {
+    background: var(--cardColor);
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 1rem;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
+
+    .card-title {
+      font-size: var(--h2FontSize);
+      color: var(--primaryColor);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+      font-size: var(--smallFontSize);
+      color: var(--greyText);
+      margin-bottom: 1rem;
+    }
+
+    .card-price {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-button {
+      background: $primaryColor;
+      color: var(--whiteColor);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: lighten($primaryColor, 20%);
+      }
+    }
+
+    .card-features {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+
+      li {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: var(--primaryColor);
+        }
+      }
+    }
+  }
+}
+}
+
+@media screen and (min-width: 768px) {
+.pricing-cards {
+  margin: 2rem 13rem;
+}
 }

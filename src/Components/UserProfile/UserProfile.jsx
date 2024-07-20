@@ -10,9 +10,20 @@ const UserProfile = ({ onClose }) => {
 
   const fetchUserSearches = async () => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}/deals?user_id=${encodeURIComponent(user.sub)}`);
-      const flattenedSearches = response.data.flat();
-      setSearches(flattenedSearches);
+      const response = await axios.get(`${process.env.SERVER_URL}/deals?user_id=${encodeURIComponent(user.sub)}&user_role=${user["/roles"][0]}`);
+      const data = response.data;
+      const formattedData = Object.keys(data).map(key => {
+        return {
+          key,
+          google_deals: data[key].google_deals,
+          hotel_data: data[key].hotel_data,
+          momondo_deals: data[key].momondo_deals,
+          skyscanner_deals: data[key].skyscanner_deals,
+          trivago_deals: data[key].trivago_deals,
+          ts: data[key].skyscanner_deals.length > 0 ? data[key].skyscanner_deals[0].ts : new Date().toISOString() // assuming ts is in skyscanner_deals
+        };
+      });
+      setSearches(formattedData);
     } catch (error) {
       console.error('Error fetching user searches:', error);
     }
@@ -34,7 +45,6 @@ const UserProfile = ({ onClose }) => {
           {user["/roles"] && user["/roles"].length > 0 && (
             <p>Your membership: {user["/roles"][0]}</p>
           )}
-
           <SearchHistory searches={searches} />
         </div>
       ) : (

@@ -102,7 +102,9 @@ const Destinations = () => {
           </button>
         </div>
         {loading ? (
-            <ReactLoading type='bars' className='Loading' />
+            <div className='loading-container'>
+              <ReactLoading type='bars' color='#2C3E50' height={100} width={100} />
+            </div>
           ) : null}
           
           {response && (

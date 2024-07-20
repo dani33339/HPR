@@ -1,35 +1,30 @@
 import React, { useState } from 'react';
 import './SearchHistory.scss';
+import Results from '../Results/Results';
 
 const SearchHistory = ({ searches }) => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedChannel, setSelectedChannel] = useState(null);
+  const [selectedHotel, setSelectedHotel] = useState(null);
 
-  const openChannelsForDate = (date) => {
+  const openHotelsForDate = (date) => {
     setSelectedDate(selectedDate === date ? null : date);
-    setSelectedChannel(null);
+    setSelectedHotel(null);
   };
 
-  const openSearchDetails = (channel) => {
-    setSelectedChannel(selectedChannel === channel ? null : channel);
-  };
-
-  const closeModal = () => {
-    setSelectedChannel(null);
+  const openChannelsForHotel = (hotelKey) => {
+    setSelectedHotel(selectedHotel === hotelKey ? null : hotelKey);
   };
 
   const dates = Array.from(new Set(searches.map(search => new Date(search.ts).toDateString())));
 
-  const channelsForSelectedDate = selectedDate
+  const hotelsForSelectedDate = selectedDate
     ? searches.filter(search => new Date(search.ts).toDateString() === selectedDate)
     : [];
 
-  const uniqueChannelsForSelectedDate = Array.from(
-    new Set(channelsForSelectedDate.map(search => search.channel))
-  ).map(channel => {
+  const uniqueHotelsForSelectedDate = Array.from(new Set(hotelsForSelectedDate.map(search => search.key))).map(key => {
     return {
-      channel,
-      searches: channelsForSelectedDate.filter(search => search.channel === channel)
+      key,
+      searches: hotelsForSelectedDate.filter(search => search.key === key)
     };
   });
 
@@ -40,29 +35,24 @@ const SearchHistory = ({ searches }) => {
         <ul className="search-list">
           {dates.map((date, index) => (
             <li key={index}>
-              <div className="date-card" onClick={() => openChannelsForDate(date)}>
+              <div className="date-card" onClick={() => openHotelsForDate(date)}>
                 <strong>Date:</strong> {date}
               </div>
               {selectedDate === date && (
-                <ul className="channel-list">
-                  {uniqueChannelsForSelectedDate.map((channelGroup, idx) => (
+                <ul className="hotel-list">
+                  {uniqueHotelsForSelectedDate.map((hotelGroup, idx) => (
                     <li key={idx}>
-                      <div className="channel-card" onClick={() => openSearchDetails(channelGroup.channel)}>
-                        <strong>Channel:</strong> {channelGroup.channel}
+                      <div className="hotel-card" onClick={() => openChannelsForHotel(hotelGroup.key)}>
+                        <div className="search-dates">
+                          <strong>Searched Dates:</strong> {hotelGroup.key.split(' ').slice(1).join(' ')}
+                        </div>
                       </div>
-                      {selectedChannel === channelGroup.channel && (
-                        <ul className="search-details-list">
-                          {channelGroup.searches.map((search, searchIdx) => (
-                            <li key={searchIdx}>
-                              <div className="search-card">
-                                <p><strong>Partner:</strong> {search.partner}</p>
-                                <p><strong>Price:</strong> {search.price}</p>
-                                <p><strong>Date:</strong> {new Date(search.ts).toLocaleString()}</p>
-                                <p><strong>URL:</strong> <a href={search.url} target="_blank" rel="noopener noreferrer">Link</a></p>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
+                      {selectedHotel === hotelGroup.key && (
+                        <div className="search-details-list">
+                          <Results
+                            response={JSON.stringify(hotelGroup.searches[0])} 
+                          />
+                        </div>
                       )}
                     </li>
                   ))}

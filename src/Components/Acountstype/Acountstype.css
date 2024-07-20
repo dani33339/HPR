@@ -93,19 +93,7 @@
   transition: background 0.3s;
 }
 .pricing .pricing-cards .pricing-card .card-button:hover {
-  background: #1a252f;
-}
-.pricing .pricing-cards .pricing-card .card-trial {
-  margin: 1rem 0;
-  font-size: var(--smallFontSize);
-  color: var(--greyText);
-}
-.pricing .pricing-cards .pricing-card .card-trial a {
-  color: var(--primaryColor);
-  text-decoration: none;
-}
-.pricing .pricing-cards .pricing-card .card-trial a:hover {
-  text-decoration: underline;
+  background: #507192;
 }
 .pricing .pricing-cards .pricing-card .card-features {
   list-style: none;
@@ -122,11 +110,6 @@
   position: absolute;
   left: 0;
   color: var(--primaryColor);
-}
-.pricing .pricing-cards .pricing-card .card-features-title {
-  font-weight: bold;
-  margin-top: 1rem;
-  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
