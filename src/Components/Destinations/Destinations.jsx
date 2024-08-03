@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import './Destinations.css';
 import DateRangeComp from "../DateRangeComp/DateRangeComp.jsx";
 import ReactLoading from 'react-loading';
@@ -31,7 +32,7 @@ const Destinations = () => {
         });
         autocomplete.addListener('place_changed', () => {
           const place = autocomplete.getPlace();
-          setHotelName(place.name);
+          setHotelName(DOMPurify.sanitize(place.name));
         });
       };
     };
@@ -65,7 +66,7 @@ const Destinations = () => {
     }
   
     const payload = {
-      hotel_name: hotelName,
+      hotel_name: DOMPurify.sanitize(hotelName), 
       checkin_date: format(startDate, 'yyyy-MM-dd'),
       checkout_date: format(endDate, 'yyyy-MM-dd'),
       user_id: user_id,
@@ -92,7 +93,7 @@ const Destinations = () => {
               type="text"
               placeholder='hotel name'
               value={hotelName}
-              onChange={(e) => setHotelName(e.target.value)}
+              onChange={(e) => setHotelName(DOMPurify.sanitize(e.target.value))}
             />
           </div>   
           <DateRangeComp className="DataRange" onDateChange={handleDateChange} />
