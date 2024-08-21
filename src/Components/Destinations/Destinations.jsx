@@ -51,22 +51,24 @@ const Destinations = () => {
   };
 
   const handleSearchClick = () => {
-    let user_role;
-    if (user && user["/roles"] && user["/roles"].length > 0) {
-      user_role = user["/roles"][0];
-    } else {
-      user_role = "user";
-    }
+    let user_role = user && user["/roles"] && user["/roles"].length > 0 ? user["/roles"][0] : "guest";
+    let user_id = isAuthenticated ? encodeURIComponent(user.sub) : "guest";
   
-    let user_id;
-    if (isAuthenticated) {
-      user_id = encodeURIComponent(user.sub);
-    } else {
-      user_id = "guest";
+    // אם המשתמש הוא אורח, נבדוק את מספר החיפושים שביצע
+    if (user_role === 'guest') {
+      const searches = localStorage.getItem('guest_searches') || 0;
+  
+      if (parseInt(searches) >= 1) {
+        setError('You have reached the limit of 1 search. Please register to perform more searches.');
+        return;
+      }
+  
+      // עדכון מספר החיפושים למשתמש האורח
+      localStorage.setItem('guest_searches', parseInt(searches) + 1);
     }
   
     const payload = {
-      hotel_name: DOMPurify.sanitize(hotelName), 
+      hotel_name: DOMPurify.sanitize(hotelName),
       checkin_date: format(startDate, 'yyyy-MM-dd'),
       checkout_date: format(endDate, 'yyyy-MM-dd'),
       user_id: user_id,
@@ -75,6 +77,7 @@ const Destinations = () => {
   
     searchHotel(payload, setLoading, setError, setResponse);
   };
+  
 
   return (
     <div className='destination section container' >

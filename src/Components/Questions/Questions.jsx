@@ -22,21 +22,21 @@ function Questions() {
     };
 
     emailjs.send(
-      process.env.EMAIL_SERVICE_ID, 
-      process.env.TEMPLATE_ID, 
+      process.env.EMAIL_SERVICE_ID,
+      process.env.TEMPLATE_ID,
       templateParams,
-      process.env.EMAIL_USER_ID 
+      process.env.EMAIL_USER_ID
     )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert("Your inquiry has been submitted successfully!");
-      setEmail("");
-      setQuestion("");
-    })
-    .catch((err) => {
-      console.log('FAILED...', err);
-      alert("There was an error submitting your inquiry. Please try again.");
-    });
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert("Your inquiry has been submitted successfully!");
+        setEmail("");
+        setQuestion("");
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+        alert("There was an error submitting your inquiry. Please try again.");
+      });
   };
 
   return (
@@ -49,7 +49,7 @@ function Questions() {
         <div className="accordion grid">
           <Accordion
             title="How does it work?"
-            desc="The system searches for the hotel you choose across multiple meta search websites while using VPN, and browsing incognito. It compares prices and returns the best prices to you."
+            desc="The system searches your chosen hotel across multiple meta-search websites using a VPN and incognito mode, compares prices, and returns the best deals."
             active={active}
             setActive={setActive}
           />
