@@ -7,6 +7,8 @@ import expedia from './assets/expedia.png';
 import reserving from './assets/reserving.png';
 import google from './assets/google.png';
 import trivago from './assets/trivago.png';
+import momondo from './assets/momondo.png'
+
 
 function LinkResults({ channel, partner, url, price }) {
   const renderIcon = () => {
@@ -25,6 +27,8 @@ function LinkResults({ channel, partner, url, price }) {
         return <img src={google} alt="Google" className="icon" />;
       case 'trivago':
         return <img src={trivago} alt="Trivago" className="icon" />;
+      case 'momondo':
+        return <img src={momondo} alt="Skyscanner" className="icon" />;
       default:
         return null;
     }

@@ -1,0 +1,69 @@
+@charset "UTF-8";
+.search-history {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.search-history h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+.search-history .search-list {
+  list-style-type: none;
+  padding: 0;
+}
+.search-history .search-list .date-card {
+  cursor: pointer;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.search-history .search-list .date-card:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+.search-history .search-list .date-card strong {
+  color: #007bff;
+}
+.search-history .search-list .hotel-list {
+  list-style-type: none;
+  padding: 0;
+}
+.search-history .search-list .hotel-list .hotel-card {
+  margin-left: 0;
+  padding: 0.75rem;
+  background-color: #f0f0f0;
+  border-left: 4px solid #007bff;
+  margin-bottom: 1rem; /* מרווח בין התוצאות */
+}
+.search-history .search-list .hotel-list .hotel-card:hover {
+  background-color: #e0e0e0;
+}
+.search-history .search-list .hotel-list .search-details-list {
+  margin-left: 0;
+  margin-bottom: 1rem; /* מרווח בין התוצאות */
+}
+@media (max-width: 768px) {
+  .search-history h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .search-history .date-card, .search-history .hotel-card {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  .search-history .search-details-list {
+    padding-left: 0;
+  }
+  .search-history .hotel-list {
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=SearchHistory.css.map */

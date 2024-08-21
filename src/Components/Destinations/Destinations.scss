@@ -1,7 +1,7 @@
+/* צבעים ופונטים */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    /* All project colors */
     --primaryColor: #2C3E50;
     --primaryColorLight: #6e94bb;
     --bgColor: #ECF0F1;
@@ -12,7 +12,6 @@
     --inputColor: #BDC3C7;
     --cardColor: #FFFFFF;
 
-    /* Font and Typography */
     --biggestFontSize: 2.5rem;
     --h1FontSize: 1.5rem;
     --h2FontSize: 1.25rem;
@@ -34,7 +33,6 @@
         max-width: 1200px;
         display: flex;
         flex-direction: column;
-       
 
         .secTitle {
             margin-bottom: 2rem;
@@ -65,7 +63,6 @@
                     -webkit-text-fill-color: transparent;
                     font-size: var(--normalFontSize);
                     font-weight: bold;
-                    
                 }
 
                 input::placeholder {
@@ -99,7 +96,6 @@
 
         .resultsection {
             display: flex;
-            
             width: 100%;
 
             .listResult {
@@ -131,6 +127,14 @@
             -webkit-text-fill-color: transparent;
         }
     }
+
+    .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 641px) {
@@ -139,6 +143,8 @@
             .searchField {
                 justify-items: center;
                 grid-template-columns: repeat(2, 1fr);
+                position: relative;
+                padding-left: 13rem;
             }
         }
     }

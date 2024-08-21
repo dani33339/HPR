@@ -67,6 +67,10 @@ img {
   width: 100%;
 }
 
+.scroll-target {
+  scroll-margin-top: 200px; /* Adjust this value to control the scroll position */
+}
+
 .btn {
   border: none;
   outline: none;

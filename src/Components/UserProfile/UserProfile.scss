@@ -1,26 +1,25 @@
 .user-profile {
-    padding: 20px;
-    
-  }
   
   .profile-details {
-    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    .profile-picture {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
   }
-  
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .search-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .search-list li {
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
+}

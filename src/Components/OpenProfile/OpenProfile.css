@@ -1,0 +1,50 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100rem;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.content .close {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--borderRadius);
+  color: var(--whiteColor);
+  background: var(--primaryColorLight);
+  transition: 0.3s ease, color 0.3s ease;
+  margin-left: 26rem;
+}
+.content .close:hover {
+  background: var(--primaryColor);
+  color: var(--blackColor);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s;
+}
+
+ul li:hover {
+  background: #f0f0f0;
+}/*# sourceMappingURL=OpenProfile.css.map */

@@ -1,8 +1,12 @@
+.searchItem {
+  margin: auto;
+}
 .searchItem .ToplevelResult {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .searchItem .ToplevelResult .providersResult {
   display: flex;
@@ -87,7 +91,7 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   .searchItem {
     justify-content: center;
     display: flex;
