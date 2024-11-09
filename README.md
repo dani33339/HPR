@@ -36,7 +36,6 @@ https://www.youtube.com/watch?v=Rzfhok_U8Ms&ab_channel=DanielMarkov
 
 ![image](https://github.com/user-attachments/assets/73ee0de5-112a-4800-a42e-c52d1fc153df)
 
-![Uploading image.png…]()
 
 
 
