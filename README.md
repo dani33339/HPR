@@ -1,5 +1,7 @@
 HPR - Hotel Price Reducer
+
 Overview
+
 The HPR (Hotel Price Reducer) project aims to assist users in finding the best hotel deals by bypassing geographical restrictions on pricing. Online travel agencies (OTAs) often display dynamic pricing based on the user's location, causing significant price variations. Our research found that hotel prices for users in India are often lower than for those in other regions, such as Israel. To address this, HPR leverages VPN technology to retrieve competitive pricing and provide users with exclusive access to the lowest available hotel deals.
 
 Through a streamlined web interface, users can input their hotel details and travel dates to search for hotel deals. A regular user receives results from one meta-search provider, while a premium user sees pricing from three major providers: Google Hotels, Trivago, and Skyscanner. Each result includes a direct booking link, allowing users to access the lowest available prices instantly.
