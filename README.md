@@ -41,4 +41,4 @@ Visit the live demo at [hpr.life](http://hpr.life) and check out the project vid
 ![Screenshot 5](https://github.com/user-attachments/assets/73ee0de5-112a-4800-a42e-c52d1fc153df)
 
 ## Contact
-For any questions or inquiries, feel free to reach out to me at [danielmarkov@domain.com](mailto:dani33339@gmail.com).
+For any questions or inquiries, feel free to reach out to me at [dani33339@gmail.com](mailto:dani33339@gmail.com).
